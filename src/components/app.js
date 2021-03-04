@@ -1,13 +1,13 @@
-import "./styles.scss";
-import React from "react";
+import '/styles/styles.scss';
+import React from 'react';
 
 import {
   ArrowFuncComponent,
   FuncComponent,
   ClassComponent,
   AnotherClassComponent,
-  YetAnotherClassComponent
-} from "./components";
+  YetAnotherClassComponent,
+} from './components';
 
 export default function App() {
   return (

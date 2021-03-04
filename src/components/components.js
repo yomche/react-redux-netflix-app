@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 //!!arrow function component!!
 
@@ -33,7 +33,7 @@ export class YetAnotherClassComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "Kate"
+      name: 'Kate',
     };
 
     this.changeName = this.changeName.bind(this);
@@ -41,7 +41,7 @@ export class YetAnotherClassComponent extends React.Component {
 
   changeName = () => {
     this.setState({
-      name: "everybody"
+      name: 'everybody',
     });
   };
 
@@ -49,7 +49,7 @@ export class YetAnotherClassComponent extends React.Component {
     return (
       <div className="App">
         <h1>Welcome to React, {this.state.name}!</h1>
-        <button onClick={this.changeName}>{"Change name"}</button>
+        <button onClick={this.changeName}>{'Change name'}</button>
       </div>
     );
   }
