@@ -12,7 +12,7 @@
     "eslint": "eslint . --ext .js --fix",
     "stylelint": "stylelint --fix styles/styles.scss",
     "prettier": "prettier --write .",
-    "dev-server": "webpack serve --mode=development --open --hot",
+    "dev-server": "webpack serve --config webpack.dev.config.js --hot",
     "build-dev": "webpack --config webpack.dev.config.js --watch",
     "build-prod": "webpack --config webpack.prod.config.js"
   },
