@@ -7,7 +7,7 @@ const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.js',
+  entry: './src/index.jsx',
   output: {
     publicPath: '',
     path: path.resolve(__dirname, 'dist'),
@@ -43,7 +43,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$/,
+        test: /\.jsx$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
