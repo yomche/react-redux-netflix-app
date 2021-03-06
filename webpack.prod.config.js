@@ -67,13 +67,6 @@ module.exports = {
       }
     ],
   },
-  devServer: {
-    historyApiFallback: true,
-    contentBase: path.resolve(__dirname, 'dist'),
-    open: true,
-    compress: false,
-    port: 3000,
-},
   plugins: [
     new CleanWebpackPlugin(),
 
