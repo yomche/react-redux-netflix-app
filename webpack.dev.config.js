@@ -5,7 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   mode: 'development',
   target: 'web',
-  entry: './src/index.js',
+  devtool: 'eval',
+  entry: './src/index.jsx',
   output: {
     publicPath: '',
     path: path.resolve(__dirname, 'dist'),
@@ -41,7 +42,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.js$/,
+        test: /\.jsx$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
