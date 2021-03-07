@@ -1,8 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// !!function component!!
-
-export function FuncComponent(props) {
-  // eslint-disable-next-line react/prop-types
-  return <h1>Greetings, {props.name}! </h1>;
+function FuncComponent({ name }) {
+  return (
+    <h1>
+      Greetings,
+      {name}
+      !
+    </h1>
+  );
 }
+
+FuncComponent.propTypes = {
+  name: PropTypes.string,
+};
+
+FuncComponent.defaultProps = {
+  name: 'React',
+};
+
+export default FuncComponent;
