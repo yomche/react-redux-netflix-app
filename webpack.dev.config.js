@@ -5,13 +5,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   mode: 'development',
   target: 'web',
-  devtool: 'eval',
+  devtool: 'source-map',
   entry: './src/index.jsx',
   output: {
     publicPath: '',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'dev_bundle.js',
-  },
+    filename: '[name].js'
+    },
   module: {
     rules: [
       {
@@ -75,6 +75,7 @@ module.exports = {
 },
   plugins: [
     new HtmlWebpackPlugin({
+      title: 'React Components',
       template: "./index.html"
     }),
 
