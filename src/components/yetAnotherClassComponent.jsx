@@ -23,11 +23,12 @@ export default class YetAnotherClassComponent extends React.Component {
   }
 
   render() {
+    const { name } = this.state;
     return (
       <div className="App">
         <h1>
           Welcome to React,
-          {this.state.name}
+          {name}
           !
         </h1>
         <button type="button" onClick={this.changeName}>Change name</button>
