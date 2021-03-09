@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "eslint": "eslint . --ext .js --fix",
+    "eslint": "eslint . --ext .jsx --fix",
     "stylelint": "stylelint --fix styles/styles.scss",
     "prettier": "prettier --write .",
     "dev-server": "webpack serve --config webpack.dev.config.js --hot",
