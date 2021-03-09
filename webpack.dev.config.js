@@ -4,14 +4,23 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
-  target: 'web',
+
   devtool: 'source-map',
+
+  resolve: {
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+  },
+
+  target: 'web',
+
   entry: './src/index.jsx',
+
   output: {
     publicPath: '',
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js'
-    },
+    filename: 'bundle.js'
+  },
+    
   module: {
     rules: [
       {
@@ -72,7 +81,8 @@ module.exports = {
     open: true,
     compress: true,
     port: 3000,
-},
+  },
+
   plugins: [
     new HtmlWebpackPlugin({
       title: 'React Components',
