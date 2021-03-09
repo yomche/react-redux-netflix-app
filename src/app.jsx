@@ -1,11 +1,11 @@
 import '../styles/styles.scss';
 import React from 'react';
 
-import ArrowFuncComponent from './components/arrowComponent.jsx';
-import FuncComponent from './components/funcComponent.jsx';
-import ClassComponent from './components/classComponent.jsx';
-import AnotherClassComponent from './components/anotherClassComponent.jsx';
-import YetAnotherClassComponent from './components/yetAnotherClassComponent.jsx';
+import ArrowFuncComponent from './components/arrowComponent';
+import FuncComponent from './components/funcComponent';
+import ClassComponent from './components/classComponent';
+import AnotherClassComponent from './components/anotherClassComponent';
+import YetAnotherClassComponent from './components/yetAnotherClassComponent';
 
 export default function App() {
   return (
