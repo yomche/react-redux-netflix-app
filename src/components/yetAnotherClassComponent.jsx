@@ -11,9 +11,9 @@ export default class YetAnotherClassComponent extends React.Component {
   }
 
   static getRandomNames() {
-    const randomNames = ['everybody', 'YomChe', 'Gerald', 'V', 'Shepard', 'Garrus'];
-    const randomizer = Math.floor(Math.random() * randomNames.length);
-    return randomNames[randomizer];
+    const randomNames = ['everybody', 'YomChe', 'Gerald', 'anon', 'Shepard', 'Chosen one'];
+    const randomNumber = Math.floor(Math.random() * randomNames.length);
+    return randomNames[randomNumber];
   }
 
   changeName() {
