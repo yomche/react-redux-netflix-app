@@ -30,7 +30,8 @@ module.exports = {
           {
             loader: 'css-loader',
             options: { sourceMap: true }
-          }, {
+          }, 
+          {
             loader: 'postcss-loader',
           }
         ]
@@ -41,7 +42,8 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-          },
+            options: { sourceMap: true },
+          }, 
           {
             loader: 'postcss-loader',
           },
@@ -61,7 +63,7 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]',
+          name: '[path][name].[ext]?[hash]',
           outputPath: 'assets',
         },
       },
@@ -69,8 +71,7 @@ module.exports = {
         test: /\.(eot|otf|svg|ttf|woff|woff2)$/i,
         loader: "file-loader",
         options: {
-          name: "[name].[ext]",
-          outputPath: "fonts",
+          name: "[path][name].[ext]?[hash]",
         }
       }
     ],
@@ -86,6 +87,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'React Components',
+      hash: 'true',
       template: "./index.html"
     }),
 
