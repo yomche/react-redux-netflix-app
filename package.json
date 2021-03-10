@@ -9,12 +9,11 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --config webpack.dev.config.js --hot",
+    "build": "webpack --config webpack.prod.config.js",
     "eslint": "eslint . --ext .jsx --fix",
     "stylelint": "stylelint --fix styles/styles.scss",
-    "prettier": "prettier --write .",
-    "dev-server": "webpack serve --config webpack.dev.config.js --hot",
-    "build-dev": "webpack --config webpack.dev.config.js --watch",
-    "build-prod": "webpack --config webpack.prod.config.js"
+    "prettier": "prettier --write ."
   },
   "repository": {
     "type": "git",
