@@ -18,7 +18,7 @@ module.exports = {
   output: {
     publicPath: '',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[fullhash].bundle.js'
   },
     
   module: {
@@ -63,19 +63,19 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         loader: 'file-loader',
         options: {
-          name: '[path][name].[ext]?[hash]',
-          outputPath: 'assets',
+          name: '[path][name].[ext]',
         },
       },
       {
         test: /\.(eot|otf|svg|ttf|woff|woff2)$/i,
         loader: "file-loader",
         options: {
-          name: "[path][name].[ext]?[hash]",
+          name: "[path][name].[ext]",
         }
       }
     ],
   },
+
   devServer: {
     historyApiFallback: true,
     contentBase: path.resolve(__dirname, 'dist'),
@@ -87,7 +87,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'React Components',
-      hash: 'true',
       template: "./index.html"
     }),
 

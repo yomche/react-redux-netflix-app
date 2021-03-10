@@ -17,7 +17,7 @@ module.exports = {
   output: {
     publicPath: '',
     path: path.resolve(__dirname, 'dist'),
-    filename: 'prod_bundle.js',
+    filename: '[fullhash].bundle.js',
   },
 
   module: {
@@ -28,7 +28,6 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { sourceMap: true }
           },
           {
             loader: 'postcss-loader',
@@ -41,7 +40,6 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: { sourceMap: true }
           },
           {
             loader: 'postcss-loader',
@@ -62,14 +60,14 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         loader: 'file-loader',
         options: {
-          name: '[path][name].[ext]?[hash]',
+          name: '[path][name].[ext]',
         },
       },
       {
         test: /\.(eot|otf|svg|ttf|woff|woff2)$/i,
         loader: "file-loader",
         options: {
-          name: "[path][name].[ext]?[hash]",
+          name: "[path][name].[ext]",
         }
       }
     ],
@@ -83,6 +81,7 @@ module.exports = {
     new CompressionPlugin(),
 
     new HtmlWebpackPlugin({
+      title: 'React Components',
       template: "./index.html"
     }),
 
