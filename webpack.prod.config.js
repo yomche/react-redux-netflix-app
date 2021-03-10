@@ -86,7 +86,7 @@ module.exports = {
     }),
 
     new MiniCssExtractPlugin({
-      filename: 'style.css',
+      filename: '[fullhash].style.css',
     })
   ]
 };
