@@ -7,12 +7,19 @@ const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   mode: 'production',
+
+  resolve: {
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+  },
+
   entry: './src/index.jsx',
+
   output: {
     publicPath: '',
     path: path.resolve(__dirname, 'dist'),
     filename: 'prod_bundle.js',
   },
+
   module: {
     rules: [
       {
@@ -22,7 +29,8 @@ module.exports = {
           {
             loader: 'css-loader',
             options: { sourceMap: true }
-          }, {
+          },
+          {
             loader: 'postcss-loader',
           }
         ]
@@ -33,6 +41,7 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
+            options: { sourceMap: true }
           },
           {
             loader: 'postcss-loader',
@@ -53,20 +62,19 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]',
-          outputPath: 'assets',
+          name: '[path][name].[ext]?[hash]',
         },
       },
       {
         test: /\.(eot|otf|svg|ttf|woff|woff2)$/i,
         loader: "file-loader",
         options: {
-          name: "[name].[ext]",
-          outputPath: "fonts",
+          name: "[path][name].[ext]?[hash]",
         }
       }
     ],
   },
+
   plugins: [
     new CleanWebpackPlugin(),
 
