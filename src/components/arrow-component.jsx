@@ -1,0 +1,4 @@
+import React from 'react';
+
+const ArrowFuncComponent = () => <h1> Hello World! </h1>;
+export default ArrowFuncComponent;
