@@ -13,7 +13,7 @@ module.exports = {
 
   target: 'web',
 
-  entry: './src/index.jsx',
+  entry: './src/index.tsx',
 
   output: {
     publicPath: '',
