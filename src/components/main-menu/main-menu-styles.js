@@ -1,10 +1,22 @@
 import styled from 'styled-components';
 
-const StyledMainMenu = styled.main`
+export const StyledMainMenu = styled.main`
     width: 1200px;
-    height: 1000px;
-    background-color: #d3d3d3;
+    height: 1200px;
     margin: auto;
+    padding-top: 30px;
+    background-color: #e6e6e6;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    row-gap: 60px;
+    overflow: hidden;
+
 `;
 
-export default StyledMainMenu;
+export const MainMenuElement = styled.section`
+    width: 300px;
+    height: 400px;
+    background-color: #b1b3b1;
+    border: 2px solid #000000;
+`;
