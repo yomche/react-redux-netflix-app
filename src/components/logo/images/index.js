@@ -1,1 +1,1 @@
-export { default as netflixLogo } from './netflix_logo.png';
+export { default as netflixLogo } from './netflix-logo.png';
