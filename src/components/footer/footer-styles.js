@@ -1,10 +1,17 @@
 import styled from 'styled-components';
 
-const StyledFooter = styled.footer`
+export const StyledFooter = styled.footer`
     width: 1200px;
     height: 70px;
-    background-color: #808080;
     margin: auto;
+    background-color: #808080;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
 `;
 
-export default StyledFooter;
+export const StyledCopyright = styled.p`
+    color: #ff0000;
+    font-weight: bold;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+`;
