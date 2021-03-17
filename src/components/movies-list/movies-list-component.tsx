@@ -1,8 +1,9 @@
-import React from 'react';
-import { StyledMainMenu, MainMenuElement } from './main-menu-styles';
+import React, { FC } from 'react';
+import { StyledMainMenu, MainMenuElement } from './movies-list-styles';
 
-export const MainMenuComponent = ():JSX.Element => (
+export const MoviesList: FC = () => (
   <StyledMainMenu>
+    <MainMenuElement />
     <MainMenuElement />
     <MainMenuElement />
     <MainMenuElement />

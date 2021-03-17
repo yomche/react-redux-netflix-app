@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const StyledMainMenu = styled.main`
     width: 1200px;
-    height: 1200px;
     margin: auto;
     padding-top: 30px;
     background-color: #e6e6e6;
@@ -10,8 +9,7 @@ export const StyledMainMenu = styled.main`
     justify-content: space-around;
     flex-wrap: wrap;
     row-gap: 60px;
-    overflow: hidden;
-
+    padding-bottom: 30px;
 `;
 
 export const MainMenuElement = styled.section`
