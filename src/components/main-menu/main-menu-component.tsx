@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledMainMenu, MainMenuElement } from './main-menu-styles';
 
-const MainMenuComponent = ():JSX.Element => (
+export const MainMenuComponent = ():JSX.Element => (
   <StyledMainMenu>
     <MainMenuElement />
     <MainMenuElement />
@@ -11,5 +11,3 @@ const MainMenuComponent = ():JSX.Element => (
     <MainMenuElement />
   </StyledMainMenu>
 );
-
-export default MainMenuComponent;

@@ -1,12 +1,10 @@
 import React from 'react';
-import StyledLogo from '../logo/logo-styles';
+import { LogoComponent } from '../logo/logo-component';
 import { StyledFooter, StyledCopyright } from './footer-styles';
 
-const FooterComponent = ():JSX.Element => (
+export const FooterComponent = ():JSX.Element => (
   <StyledFooter>
-    <StyledLogo />
+    <LogoComponent />
     <StyledCopyright>ALL RIGHTS RESERVED, 2021</StyledCopyright>
   </StyledFooter>
 );
-
-export default FooterComponent;
