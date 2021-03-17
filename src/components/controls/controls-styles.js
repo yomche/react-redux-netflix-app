@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledButtonSection = styled.section`
+export const StyledControlsSection = styled.section`
     width: 1000px;
     height: 50px;
     margin: auto;

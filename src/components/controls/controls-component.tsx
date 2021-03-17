@@ -1,15 +1,16 @@
 import React from 'react';
 import {
-  StyledButtonSection,
+  StyledControlsSection,
   StyledTitleButton,
   StyledGenreBottom,
   StyledSubmitBottom,
-} from './button-styles';
+} from './controls-styles';
 
-const ButtonComponent = ():JSX.Element => (
-  <StyledButtonSection>
+export const Controls = ():JSX.Element => (
+  <StyledControlsSection>
     <StyledTitleButton>TITLE</StyledTitleButton>
     <StyledGenreBottom> GENRE </StyledGenreBottom>
     <StyledSubmitBottom> SUBMIT </StyledSubmitBottom>
-  </StyledButtonSection>
+  </StyledControlsSection>
 );
+
