@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
+
 import {
   StyledControlsSection,
   StyledTitleButton,
-  StyledGenreBottom,
-  StyledSubmitBottom,
+  StyledGenreButton,
+  StyledSubmitButton,
 } from './controls-styles';
 
-export const Controls = ():JSX.Element => (
+export const Controls: FC = () => (
   <StyledControlsSection>
     <StyledTitleButton>TITLE</StyledTitleButton>
-    <StyledGenreBottom> GENRE </StyledGenreBottom>
-    <StyledSubmitBottom> SUBMIT </StyledSubmitBottom>
+    <StyledGenreButton> GENRE </StyledGenreButton>
+    <StyledSubmitButton> SUBMIT </StyledSubmitButton>
   </StyledControlsSection>
 );
 
