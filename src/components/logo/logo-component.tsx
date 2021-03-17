@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { StyledLogo } from './logo-styles';
 
-export const LogoComponent = ():JSX.Element => <StyledLogo />;
+export const LogoComponent: FC = () => <StyledLogo />;

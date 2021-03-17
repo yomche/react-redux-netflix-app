@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {
   StyledSearchSection,
   StyledHeading,
   StyledSearchField,
 } from './search-input-styles';
 
-export const SearchInput = ():JSX.Element => (
+export const SearchInput: FC = () => (
   <StyledSearchSection>
     <StyledHeading>FIND YOUR MOVIE</StyledHeading>
     <StyledSearchField placeholder="Quentin Tarantino" />
