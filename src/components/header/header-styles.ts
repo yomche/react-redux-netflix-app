@@ -5,7 +5,7 @@ export const StyledHeader = styled.header`
     width: 1200px;
     height: 300px;
     background-image: url(${headerBackground});
-    background-color: rgba(0, 0, 0);
+    background-color: #808080;
     background-size: cover;
     margin: auto;
 `;

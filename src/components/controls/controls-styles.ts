@@ -17,7 +17,7 @@ export const StyledTitleButton = styled.button`
     border-radius: 5px;
 `;
 
-export const StyledGenreBottom = styled.button`
+export const StyledGenreButton = styled.button`
     width: 100px;
     height: 30px;
     color: #ffffff;
@@ -26,7 +26,7 @@ export const StyledGenreBottom = styled.button`
     margin-right: 650px;
 `;
 
-export const StyledSubmitBottom = styled.button`
+export const StyledSubmitButton = styled.button`
     width: 160px;
     height: 35px;
     font-size: 17px;

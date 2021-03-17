@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledSearchSection = styled.section`
+export const StyledSearchSection = styled.form`
     width: 1000px;
     margin: auto;
 `;
