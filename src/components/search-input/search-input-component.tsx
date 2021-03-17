@@ -1,15 +1,13 @@
 import React from 'react';
 import {
-  StyledSearch,
+  StyledSearchSection,
   StyledHeading,
   StyledSearchField,
-} from './search-styles';
+} from './search-input-styles';
 
-const SearchComponent = ():JSX.Element => (
-  <StyledSearch>
+export const SearchInput = ():JSX.Element => (
+  <StyledSearchSection>
     <StyledHeading>FIND YOUR MOVIE</StyledHeading>
     <StyledSearchField placeholder="Quentin Tarantino" />
-  </StyledSearch>
+  </StyledSearchSection>
 );
-
-export default SearchComponent;
