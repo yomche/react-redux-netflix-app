@@ -8,6 +8,6 @@ import {
 export const SearchInput: FC = () => (
   <StyledSearchSection>
     <StyledHeading>FIND YOUR MOVIE</StyledHeading>
-    <StyledSearchField placeholder="Quentin Tarantino" />
+    <StyledSearchField type="text" placeholder="Quentin Tarantino" />
   </StyledSearchSection>
 );
