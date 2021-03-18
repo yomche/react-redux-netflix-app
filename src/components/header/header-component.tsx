@@ -4,7 +4,7 @@ import { Controls } from '../controls/controls-component';
 import { SearchInput } from '../search-input/search-input-component';
 import { NavPanel } from '../nav-panel/nav-panel-component';
 
-export const HeaderComponent: FC = () => (
+export const Header: FC = () => (
   <StyledHeader>
     <NavPanel />
     <SearchInput />

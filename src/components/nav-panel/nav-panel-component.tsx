@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { LogoComponent } from '../logo/logo-component';
+import { Logo } from '../logo/logo-component';
 import { StyledSearchButton, StyledNav } from './nav-panel-styles';
 
 export const NavPanel: FC = () => (
   <StyledNav>
-    <LogoComponent />
+    <Logo />
     <StyledSearchButton> SEARCH </StyledSearchButton>
   </StyledNav>
 );

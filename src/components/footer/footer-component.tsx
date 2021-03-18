@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { LogoComponent } from '../logo/logo-component';
+import { Logo } from '../logo/logo-component';
 import { StyledFooter, StyledCopyright } from './footer-styles';
 
-export const FooterComponent: FC = () => (
+export const Footer: FC = () => (
   <StyledFooter>
-    <LogoComponent />
+    <Logo />
     <StyledCopyright>ALL RIGHTS RESERVED, 2021</StyledCopyright>
   </StyledFooter>
 );
