@@ -1,20 +1,24 @@
 import styled from 'styled-components';
 
-export const StyledMainMenu = styled.main`
+const BACKGROUND_COLOR = '#e6e6e6';
+const SECONDARY_BACKGROUND_COLOR = '#b1b3b1';
+const BORDER_COLOR = '#000000';
+
+export const StyledMoviesList = styled.main`
     width: 1200px;
     margin: auto;
     padding-top: 30px;
-    background-color: #e6e6e6;
+    padding-bottom: 30px;
+    background-color: ${BACKGROUND_COLOR};
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     row-gap: 60px;
-    padding-bottom: 30px;
 `;
 
-export const MainMenuElement = styled.section`
+export const MoviesListElement = styled.section`
     width: 300px;
     height: 400px;
-    background-color: #b1b3b1;
-    border: 2px solid #000000;
+    background-color: ${SECONDARY_BACKGROUND_COLOR};
+    border: 2px solid ${BORDER_COLOR};
 `;

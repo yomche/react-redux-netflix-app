@@ -1,19 +1,22 @@
 import styled from 'styled-components';
 
+const BACKGROUND_COLOR = 'ffffff';
+const FONT_COLOR = '#ff0000';
+
 export const StyledNav = styled.nav`
     width: 1000px;
     height: 55px;
-    align-items: center;
-    display: flex;
     margin: auto;
+    display: flex;
+    align-items: center;
     justify-content:space-between;
 `;
 
 export const StyledSearchButton = styled.button`
     width: 100px;
     height: 30px;
-    background-color: #ffffff;
-    color: #ff0000;
+    color: ${FONT_COLOR};
     font-weight: bold;
+    background-color: ${BACKGROUND_COLOR};
     border-radius: 5px;
 `;
