@@ -11,10 +11,3 @@ export const StyledHeader = styled.header`
     background-size: cover;
     margin: auto;
 `;
-
-export const StyledSorter = styled.section`
-    width: 1200px;
-    height: 40px;
-    background-color: ${BACKGROUND_COLOR};
-    margin-top: 20px;
-`;
