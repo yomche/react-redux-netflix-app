@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const BACKGROUND_COLOR = '#808080';
-const FONT_COLOR = '#ff0000';
+const FONT_COLOR = '#000000';
 
 export const StyledFooter = styled.footer`
     width: 1200px;
