@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 
 import { Story } from '@storybook/react';
 
-import { Logo } from '../components/logo/logo-component';
+import { Logo } from './logo.component';
 
 export default {
   title: 'Components/Logo',

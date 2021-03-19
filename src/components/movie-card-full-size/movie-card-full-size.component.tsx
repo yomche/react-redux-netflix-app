@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import {
   StyleFullMovieCard, StyledMovieCardInfo, StyledMovieCardPoster, StyledHeading, StyledText,
-} from './movie-card-full-size-styles';
+} from './movie-card-full-size.styles';
 
 export const MovieCardFullSize: FC <{ poster:string, title:string, date:string, description:string }> = ({
   poster, title, date, description,

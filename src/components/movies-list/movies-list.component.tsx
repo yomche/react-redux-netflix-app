@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { StyledMoviesList } from './movies-list-styles';
-import { MovieCard } from '../movie-card/movie-card-component';
+import { StyledMoviesList } from './movies-list.styles';
+import { MovieCard } from '../movie-card/movie-card.component';
 import { movies } from '../../movies-list';
 
 export const MoviesList: FC = () => (

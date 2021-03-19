@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 
 import { Story } from '@storybook/react';
 
-import { Footer } from '../components/footer/footer-component';
+import { Footer } from './footer.component';
 
 export default {
   title: 'Components/Footer',

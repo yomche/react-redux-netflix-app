@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 
 import { Story } from '@storybook/react';
 
-import { NavPanel } from '../components/nav-panel/nav-panel-component';
+import { NavPanel } from './nav-panel.component';
 
 export default {
   title: 'Components/Navigation Panel',

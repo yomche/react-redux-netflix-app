@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 
 import { Story } from '@storybook/react';
 
-import { Controls } from '../components/controls/controls-component';
+import { Controls } from './controls.component';
 
 export default {
   title: 'Components/Controls',

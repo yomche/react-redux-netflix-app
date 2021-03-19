@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 
 import { Story } from '@storybook/react';
 
-import { SearchInput } from '../components/search-input/search-input-component';
+import { SearchInput } from './search-input.component';
 
 export default {
   title: 'Components/Search Input',

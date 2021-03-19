@@ -3,7 +3,7 @@ import {
   StyledSearchSection,
   StyledHeading,
   StyledSearchField,
-} from './search-input-styles';
+} from './search-input.styles';
 
 export const SearchInput: FC = () => (
   <StyledSearchSection>

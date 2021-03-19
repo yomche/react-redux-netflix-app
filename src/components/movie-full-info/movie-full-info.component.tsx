@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { StyledMovieFullInfoHeader } from './movie-full-info-styles';
-import { NavPanel } from '../nav-panel/nav-panel-component';
-import { MovieCardFullSize } from '../movie-card-full-size/movie-card-full-size-component';
+import { StyledMovieFullInfoHeader } from './movie-full-info.styles';
+import { NavPanel } from '../nav-panel/nav-panel.component';
+import { MovieCardFullSize } from '../movie-card-full-size/movie-card-full-size.component';
 import { movies } from '../../movies-list';
 
 export const MovieFullInfo: FC = () => (

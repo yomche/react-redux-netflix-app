@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 
 import { Story } from '@storybook/react';
 
-import { Header } from '../components/header/header-component';
+import { Header } from './header.component';
 
 export default {
   title: 'Components/Header',

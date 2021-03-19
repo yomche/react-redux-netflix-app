@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 
 import { Story } from '@storybook/react';
 
-import { MoviesList } from '../components/movies-list/movies-list-component';
+import { MoviesList } from './movies-list.component';
 
 export default {
   title: 'Components/Movies List',

@@ -5,7 +5,7 @@ import {
   StyledTitleButton,
   StyledGenreButton,
   StyledSubmitButton,
-} from './controls-styles';
+} from './controls.styles';
 
 export const Controls: FC = () => (
   <StyledControlsSection>
@@ -14,4 +14,3 @@ export const Controls: FC = () => (
     <StyledSubmitButton> SUBMIT </StyledSubmitButton>
   </StyledControlsSection>
 );
-
