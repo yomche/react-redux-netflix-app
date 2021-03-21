@@ -9,7 +9,7 @@ import {
 
 export const Controls: FC = () => (
   <StyledControlsSection>
-    <StyledTitleButton>TITLE</StyledTitleButton>
+    <StyledTitleButton> TITLE </StyledTitleButton>
     <StyledGenreButton> GENRE </StyledGenreButton>
     <StyledSubmitButton> SUBMIT </StyledSubmitButton>
   </StyledControlsSection>

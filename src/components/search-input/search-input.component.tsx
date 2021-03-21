@@ -1,13 +1,9 @@
 import React, { FC } from 'react';
-import {
-  StyledSearchSection,
-  StyledHeading,
-  StyledSearchField,
-} from './search-input.styles';
+import { StyledSearchForm, StyledHeading, StyledSearchInput } from './search-input.styles';
 
 export const SearchInput: FC = () => (
-  <StyledSearchSection>
+  <StyledSearchForm>
     <StyledHeading>FIND YOUR MOVIE</StyledHeading>
-    <StyledSearchField type="text" placeholder="Quentin Tarantino" />
-  </StyledSearchSection>
+    <StyledSearchInput type="text" placeholder="Quentin Tarantino" />
+  </StyledSearchForm>
 );
