@@ -9,7 +9,7 @@ export default {
   component: SearchInput,
 };
 
-const Template: Story<ComponentProps<typeof SearchInput>> = (args) => <SearchInput {...args} />;
+const Template: Story<ComponentProps<typeof SearchInput>> = () => <SearchInput />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

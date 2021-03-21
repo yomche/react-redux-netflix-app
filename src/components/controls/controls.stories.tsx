@@ -9,7 +9,7 @@ export default {
   component: Controls,
 };
 
-const Template: Story<ComponentProps<typeof Controls>> = (args) => <Controls {...args} />;
+const Template: Story<ComponentProps<typeof Controls>> = () => <Controls />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

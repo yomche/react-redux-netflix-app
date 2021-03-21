@@ -9,7 +9,7 @@ export default {
   component: Footer,
 };
 
-const Template: Story<ComponentProps<typeof Footer>> = (args) => <Footer {...args} />;
+const Template: Story<ComponentProps<typeof Footer>> = () => <Footer />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

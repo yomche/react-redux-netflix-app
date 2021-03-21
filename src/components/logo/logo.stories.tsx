@@ -9,7 +9,7 @@ export default {
   component: Logo,
 };
 
-const Template: Story<ComponentProps<typeof Logo>> = (args) => <Logo {...args} />;
+const Template: Story<ComponentProps<typeof Logo>> = () => <Logo />;
 
 export const Primary = Template.bind({});
 Primary.args = {};
