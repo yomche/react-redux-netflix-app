@@ -1,31 +1,29 @@
 import styled from 'styled-components';
 
 export const StyleFullMovieCard = styled.section`
-    width: 1000px;
-    display:flex;
-    column-gap: 50px;
-    margin:auto;
+  width: 1000px;
+  display: flex;
+  column-gap: 50px;
+  margin: auto;
 `;
 
 export const StyledMovieCardPoster = styled.img`
-    width: 350px;
-    height: 500px;
+  width: 350px;
+  height: 500px;
 `;
 
-export const StyledMovieCardInfo = styled.div`
-
-`;
+export const StyledMovieCardInfo = styled.div``;
 
 export const StyledHeading = styled.h1`
-    color: red;
-    font-size: 35px;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    font-weight: bold;
+  color: red;
+  font-size: 35px;
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+  font-weight: bold;
 `;
 
 export const StyledText = styled.p`
-    color: white;
-    font-size: 15px;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    font-weight: bold;
+  color: white;
+  font-size: 15px;
+  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+  font-weight: bold;
 `;
