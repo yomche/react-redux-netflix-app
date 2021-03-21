@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { StyledMovieFullInfoHeader } from './movie-full-info.styles';
 import { MovieCardFullSize } from '../movie-card-full-size/movie-card-full-size.component';
-import { movies } from '../../movies-list';
+import { movies } from '../../movies-data';
 
 export const MovieFullInfo: FC = () => {
   const moviesItem = movies[0];
