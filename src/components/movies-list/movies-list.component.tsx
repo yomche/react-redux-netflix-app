@@ -3,15 +3,18 @@ import { StyledMoviesList } from './movies-list.styles';
 import { MovieCard } from '../movie-card/movie-card.component';
 import { movies } from '../../movies-list';
 
-export const MoviesList: FC = () => (
+export const MoviesList: FC<{ onSetMovieFullInfoType: () => void }> = ({
+  onSetMovieFullInfoType,
+}) => (
   <StyledMoviesList>
-    {movies.map((movie) => (
+    {movies.map(({ poster_path, title, genres, release_date, id }) => (
       <MovieCard
-        poster={movie.poster_path}
-        title={movie.title}
-        genre={movie.genres[0]}
-        date={movie.release_date}
-        key={movie.id}
+        onClickToChange={onSetMovieFullInfoType}
+        poster={poster_path}
+        title={title}
+        genre={genres[0]}
+        date={release_date}
+        key={id}
       />
     ))}
   </StyledMoviesList>

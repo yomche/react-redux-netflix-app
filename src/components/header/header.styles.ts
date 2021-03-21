@@ -4,10 +4,9 @@ import { headerBackground } from './images';
 const BACKGROUND_COLOR = '#808080';
 
 export const StyledHeader = styled.header`
-    width: 1200px;
-    height: 300px;
-    background-image: url(${headerBackground});
-    background-color: ${BACKGROUND_COLOR};
-    background-size: cover;
-    margin: auto;
+  width: 1200px;
+  background-image: url(${headerBackground});
+  background-color: ${BACKGROUND_COLOR};
+  background-size: cover;
+  margin: auto;
 `;
