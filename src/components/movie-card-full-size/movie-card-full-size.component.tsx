@@ -7,12 +7,19 @@ import {
   StyledText,
 } from './movie-card-full-size.styles';
 
-export const MovieCardFullSize: FC<{
+interface MovieCardFullSizeProps {
   poster: string;
   title: string;
   date: string;
   description: string;
-}> = ({ poster, title, date, description }) => (
+}
+
+export const MovieCardFullSize: FC<MovieCardFullSizeProps> = ({
+  poster,
+  title,
+  date,
+  description,
+}) => (
   <StyleFullMovieCard>
     <StyledMovieCardPoster src={poster} />
     <StyledMovieCardInfo>

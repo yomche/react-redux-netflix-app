@@ -5,13 +5,17 @@ import { SearchInput } from '../search-input/search-input.component';
 import { NavPanel } from '../nav-panel/nav-panel.component';
 import { MovieFullInfo } from '../movie-full-info/movie-full-info.component';
 
-export const Header: FC<{ viewType: string; onSetMovieListType: () => void }> = ({
-  viewType,
-  onSetMovieListType,
-}) => (
+import { typeOfView } from '../../constants/app.constants';
+
+interface HeaderProps {
+  viewType: string;
+  onSetMovieListType: () => void;
+}
+
+export const Header: FC<HeaderProps> = ({ viewType, onSetMovieListType }) => (
   <StyledHeader>
     <NavPanel onClickToChange={onSetMovieListType} />
-    {viewType === 'movieList' ? (
+    {viewType === typeOfView.movieList ? (
       <>
         <SearchInput />
         <Controls />
