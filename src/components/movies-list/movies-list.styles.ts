@@ -6,7 +6,7 @@ export const StyledContainer = styled.section`
 `;
 
 export const StyledMoviesList = styled.ul`
-  width: 1200px;
+  width: 1000px;
   margin: auto;
   padding-left: 0;
   padding-top: 30px;
