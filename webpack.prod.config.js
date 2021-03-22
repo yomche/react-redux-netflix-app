@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -87,12 +88,14 @@ module.exports = {
     new CompressionPlugin(),
 
     new HtmlWebpackPlugin({
-      title: 'React Components',
+      title: 'Netflix Epam',
       template: "./index.html"
     }),
 
     new MiniCssExtractPlugin({
       filename: '[fullhash].style.css',
-    })
+    }),
+
+    new FaviconsWebpackPlugin('./assets/netflix_logo.png')
   ]
 };

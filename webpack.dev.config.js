@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -92,12 +93,14 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'React Components',
+      title: 'Netflix Epam',
       template: "./index.html"
     }),
 
     new MiniCssExtractPlugin({
       filename: '[fullhash].style.css',
-    })
+    }),
+
+    new FaviconsWebpackPlugin('./assets/netflix_logo.png')
   ]
 };
