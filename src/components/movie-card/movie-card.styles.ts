@@ -21,7 +21,6 @@ export const StyledMovieCardTitle = styled.h3`
   font-size: 16px;
   text-align: left;
   text-transform: uppercase;
-  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 `;
 
 export const StyledMovieCardGenre = styled.p`
@@ -29,7 +28,6 @@ export const StyledMovieCardGenre = styled.p`
   font-size: 13px;
   margin-top: -15px;
   text-align: left;
-  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 `;
 
 export const StyledMovieCardDate = styled.p`
@@ -38,7 +36,6 @@ export const StyledMovieCardDate = styled.p`
   font-size: 13px;
   margin-top: -15px;
   text-align: center;
-  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
   border: 2px solid ${SECONDARY_FONT_COLOR};
 `;
 

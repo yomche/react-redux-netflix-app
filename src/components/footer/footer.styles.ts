@@ -15,5 +15,4 @@ export const StyledFooter = styled.footer`
 export const StyledCopyright = styled.p`
   color: ${FONT_COLOR};
   font-weight: bold;
-  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 `;

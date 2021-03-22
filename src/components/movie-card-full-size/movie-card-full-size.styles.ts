@@ -17,13 +17,11 @@ export const StyledMovieCardInfo = styled.div``;
 export const StyledHeading = styled.h1`
   color: red;
   font-size: 35px;
-  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
   font-weight: bold;
 `;
 
 export const StyledText = styled.p`
   color: white;
   font-size: 15px;
-  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
   font-weight: bold;
 `;

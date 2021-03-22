@@ -26,18 +26,14 @@ export const StyledSorterResult = styled.ul`
   align-items: center;
 `;
 
-export const StyledSorterFoundData = styled.p`
-  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-`;
+export const StyledSorterFoundData = styled.p``;
 
 export const StyledSorterDataHeading = styled.li`
   list-style: none;
-  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 `;
 
 export const StyledSorterData = styled.li`
   list-style: none;
-  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 `;
 
 export const StyledSorterDataWrapper = styled.p`

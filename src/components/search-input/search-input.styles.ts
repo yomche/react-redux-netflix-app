@@ -13,7 +13,6 @@ export const StyledHeading = styled.h1`
   color: ${FONT_COLOR};
   font-weight: bold;
   font-size: 35px;
-  font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
 `;
 
 export const StyledSearchInput = styled.input`
