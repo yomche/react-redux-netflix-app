@@ -8,7 +8,10 @@ interface ErrorBoundaryState {
   hasError: boolean;
 }
 
-export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+export class ErrorBoundaryMoviesList extends React.Component<
+  ErrorBoundaryProps,
+  ErrorBoundaryState
+> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
@@ -22,7 +25,14 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
     const { hasError } = this.state;
     const { children } = this.props;
     if (hasError) {
-      return <div>Something went wrong</div>;
+      return (
+        <div>
+          <h1 style={{ textAlign: 'center', color: 'red' }}>
+            {' '}
+            Something went wrong while loading movies data
+          </h1>
+        </div>
+      );
     }
     return children;
   }
