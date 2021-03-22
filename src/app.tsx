@@ -5,6 +5,7 @@ import { Header } from './components/header/header.component';
 import { MoviesList } from './components/movies-list/movies-list.component';
 import { Footer } from './components/footer/footer.component';
 import { MoviesSorter } from './components/movies-sorter/movies-sorter.component';
+import { ErrorBoundary } from './error-boundary';
 
 export const App: FC = () => {
   const [viewType, setViewType] = useState('movieList');
@@ -13,10 +14,12 @@ export const App: FC = () => {
 
   return (
     <>
-      <Header viewType={viewType} onSetMovieListType={setMovieListType} />
-      <MoviesSorter />
-      <MoviesList onSetMovieFullInfoType={setMovieFullInfoType} />
-      <Footer />
+      <ErrorBoundary>
+        <Header viewType={viewType} onSetMovieListType={setMovieListType} />
+        <MoviesSorter />
+        <MoviesList onSetMovieFullInfoType={setMovieFullInfoType} />
+        <Footer />
+      </ErrorBoundary>
     </>
   );
 };
