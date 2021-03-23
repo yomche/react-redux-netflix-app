@@ -7,10 +7,10 @@ import { MovieFullInfo } from '../movie-full-info/movie-full-info.component';
 
 import { typeOfView } from '../../constants/app.constants';
 
-interface HeaderProps {
+type HeaderProps = {
   viewType: string;
   onSetMovieListType: () => void;
-}
+};
 
 export const Header: FC<HeaderProps> = ({ viewType, onSetMovieListType }) => (
   <StyledHeader>

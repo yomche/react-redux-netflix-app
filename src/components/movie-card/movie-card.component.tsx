@@ -8,13 +8,13 @@ import {
   StyledMovieCardInfo,
 } from './movie-card.styles';
 
-interface MovieCardProps {
+type MovieCardProps = {
   poster: string;
   title: string;
   genre: string;
   date: string;
   onClickToChange: () => void;
-}
+};
 
 export const MovieCard: FC<MovieCardProps> = ({ poster, title, genre, date, onClickToChange }) => (
   <StyledMovieCard onClick={onClickToChange}>

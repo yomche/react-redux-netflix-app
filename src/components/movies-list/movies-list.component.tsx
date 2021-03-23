@@ -3,9 +3,9 @@ import { StyledMoviesList, StyledContainer } from './movies-list.styles';
 import { MovieCard } from '../movie-card/movie-card.component';
 import { movies } from '../../movies-data';
 
-interface MoviesListProps {
+type MoviesListProps = {
   onSetMovieFullInfoType: () => void;
-}
+};
 
 export const MoviesList: FC<MoviesListProps> = ({ onSetMovieFullInfoType }) => (
   <StyledContainer>

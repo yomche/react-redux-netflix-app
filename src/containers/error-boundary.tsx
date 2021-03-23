@@ -1,12 +1,12 @@
 import React from 'react';
 
-interface ErrorBoundaryProps {
+type ErrorBoundaryProps = {
   children: React.ReactNode;
-}
+};
 
-interface ErrorBoundaryState {
+type ErrorBoundaryState = {
   hasError: boolean;
-}
+};
 
 export class ErrorBoundaryMoviesList extends React.Component<
   ErrorBoundaryProps,

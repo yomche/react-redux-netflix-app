@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import { Logo } from '../logo/logo.component';
 import { StyledSearchButton, StyledNav } from './nav-panel.styles';
 
-interface NavPanelProps {
+type NavPanelProps = {
   onClickToChange: () => void;
-}
+};
 
 export const NavPanel: FC<NavPanelProps> = ({ onClickToChange }) => (
   <StyledNav>
