@@ -18,7 +18,10 @@ export const StyledTitleButton = styled.button`
   background-color: ${BACKGROUND_COLOR};
   margin-right: 15px;
   border-radius: 5px;
-  cursor: pointer;
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export const StyledGenreButton = styled.button`
@@ -28,7 +31,10 @@ export const StyledGenreButton = styled.button`
   background-color: ${BACKGROUND_COLOR};
   border-radius: 5px;
   margin-right: 650px;
-  cursor: pointer;
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export const StyledSubmitButton = styled.button`
@@ -39,5 +45,8 @@ export const StyledSubmitButton = styled.button`
   background-color: ${BACKGROUND_COLOR};
   margin-top: 20px;
   border-radius: 5px;
-  cursor: pointer;
+
+  :hover {
+    cursor: pointer;
+  }
 `;

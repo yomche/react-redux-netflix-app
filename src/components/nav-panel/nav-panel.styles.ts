@@ -19,5 +19,8 @@ export const StyledSearchButton = styled.button`
   font-weight: bold;
   background-color: ${BACKGROUND_COLOR};
   border-radius: 5px;
-  cursor: pointer;
+
+  :hover {
+    cursor: pointer;
+  }
 `;
