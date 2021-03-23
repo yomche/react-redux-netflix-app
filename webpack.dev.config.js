@@ -27,6 +27,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
+          'style-loader',
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
@@ -40,6 +41,7 @@ module.exports = {
       {
         test: /\.scss$/i,
         use: [
+          'style-loader',
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
@@ -54,13 +56,13 @@ module.exports = {
         ],
       },
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)$/,
         loader: 'ts-loader',
         options: { transpileOnly: true },
         exclude: /node_modules/,
       },
       {
-        test: /\.jsx$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
@@ -93,7 +95,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Netflix Epam',
+      title: 'Netflix EPAM',
       template: "./index.html"
     }),
 
