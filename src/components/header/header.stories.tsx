@@ -31,7 +31,7 @@ storiesOf('Header with Knobs', module)
       movieList: 'movieList',
       MovieFullInfo: 'movieFullInfo',
     };
-    const viewTypeSelect = options('viewType', viewType, 'movieFullInfo', { display: 'select' });
+    const viewTypeSelect = options('viewType', viewType, 'movieList', { display: 'select' });
 
     return <Header viewType={viewTypeSelect} />;
   });
