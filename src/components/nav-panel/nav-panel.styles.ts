@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
-const BACKGROUND_COLOR = 'ffffff';
-const FONT_COLOR = '#ff0000';
+const BACKGROUND_COLOR = '#ff0000';
+const FONT_COLOR = '#ffffff';
+const BUTTON_COLOR = '#a9a9a9';
 
 export const StyledNav = styled.nav`
   width: 1000px;
@@ -22,5 +23,6 @@ export const StyledSearchButton = styled.button`
 
   :hover {
     cursor: pointer;
+    background-color: ${BUTTON_COLOR};
   }
 `;

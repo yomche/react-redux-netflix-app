@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const BACKGROUND_COLOR = '#ff0000';
 const FONT_COLOR = '#ffffff';
+const BUTTON_COLOR = '#a9a9a9';
 
 export const StyledControlsSection = styled.section`
   width: 1000px;
@@ -21,6 +22,7 @@ export const StyledTitleButton = styled.button`
 
   :hover {
     cursor: pointer;
+    background-color: ${BUTTON_COLOR};
   }
 `;
 
@@ -34,6 +36,7 @@ export const StyledGenreButton = styled.button`
 
   :hover {
     cursor: pointer;
+    background-color: ${BUTTON_COLOR};
   }
 `;
 
@@ -48,5 +51,6 @@ export const StyledSubmitButton = styled.button`
 
   :hover {
     cursor: pointer;
+    background-color: ${BUTTON_COLOR};
   }
 `;
