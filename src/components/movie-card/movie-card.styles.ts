@@ -7,7 +7,10 @@ export const StyledMovieCard = styled.li`
   width: 250px;
   height: 400px;
   list-style: none;
-  cursor: pointer;
+
+  :hover {
+    cursor: pointer;
+  }
 `;
 
 export const MovieCardPoster = styled.img`

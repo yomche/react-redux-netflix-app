@@ -34,10 +34,8 @@ export const StyledSorterDataHeading = styled.li`
 
 export const StyledSorterData = styled.li`
   list-style: none;
-`;
 
-export const StyledSorterDataWrapper = styled.p`
-  ${StyledSorterData}:hover & {
+  :hover {
     cursor: pointer;
     color: ${FONT_COLOR};
   }

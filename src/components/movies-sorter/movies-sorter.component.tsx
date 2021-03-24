@@ -6,7 +6,6 @@ import {
   StyledSorterInfo,
   StyledSorterData,
   StyledSorterDataHeading,
-  StyledSorterDataWrapper,
 } from './movies-sorter.styles';
 
 export const MoviesSorter: FC = () => (
@@ -15,12 +14,8 @@ export const MoviesSorter: FC = () => (
       <StyledSorterFoundData>6 movies found</StyledSorterFoundData>
       <StyledSorterResult>
         <StyledSorterDataHeading>Sort by </StyledSorterDataHeading>
-        <StyledSorterData>
-          <StyledSorterDataWrapper>release date</StyledSorterDataWrapper>
-        </StyledSorterData>
-        <StyledSorterData>
-          <StyledSorterDataWrapper>rating</StyledSorterDataWrapper>
-        </StyledSorterData>
+        <StyledSorterData> release date </StyledSorterData>
+        <StyledSorterData>rating</StyledSorterData>
       </StyledSorterResult>
     </StyledSorterInfo>
   </StyledSorter>

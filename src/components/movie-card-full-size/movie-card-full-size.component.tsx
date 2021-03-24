@@ -8,24 +8,24 @@ import {
 } from './movie-card-full-size.styles';
 
 type MovieCardFullSizeProps = {
-  poster: string;
+  poster_path: string;
   title: string;
-  date: string;
-  description: string;
+  release_date: string;
+  overview: string;
 };
 
 export const MovieCardFullSize: FC<MovieCardFullSizeProps> = ({
-  poster,
+  poster_path,
   title,
-  date,
-  description,
+  release_date,
+  overview,
 }) => (
   <StyleFullMovieCard>
-    <StyledMovieCardPoster src={poster} />
+    <StyledMovieCardPoster src={poster_path} />
     <StyledMovieCardInfo>
       <StyledHeading> {title} </StyledHeading>
-      <StyledText> {date} </StyledText>
-      <StyledText> {description} </StyledText>
+      <StyledText> {release_date} </StyledText>
+      <StyledText> {overview} </StyledText>
     </StyledMovieCardInfo>
   </StyleFullMovieCard>
 );

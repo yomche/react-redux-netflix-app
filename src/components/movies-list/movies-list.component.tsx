@@ -4,19 +4,25 @@ import { MovieCard } from '../movie-card/movie-card.component';
 import { movies } from '../../movies-data';
 
 type MoviesListProps = {
-  onSetMovieFullInfoType: () => void;
+  onSetMovieFullInfoType: (currentMovie: {
+    poster_path: string;
+    title: string;
+    release_date: string;
+    overview: string;
+  }) => React.MouseEventHandler<HTMLLIElement>;
 };
 
 export const MoviesList: FC<MoviesListProps> = ({ onSetMovieFullInfoType }) => (
   <StyledContainer>
     <StyledMoviesList>
-      {movies.map(({ poster_path, title, genres, release_date, id }) => (
+      {movies.map(({ poster_path, title, genres, release_date, overview, id }) => (
         <MovieCard
           onClickToChange={onSetMovieFullInfoType}
-          poster={poster_path}
+          poster_path={poster_path}
           title={title}
           genre={genres[0]}
-          date={release_date}
+          release_date={release_date}
+          overview={overview}
           key={id}
         />
       ))}

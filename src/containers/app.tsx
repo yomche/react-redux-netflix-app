@@ -10,13 +10,24 @@ import { ErrorBoundaryMoviesList } from './error-boundary';
 
 export const App: FC = () => {
   const [viewType, setViewType] = useState(typeOfView.movieList);
-  const setMovieFullInfoType = useCallback(() => setViewType(typeOfView.MovieFullInfo), []);
+  const [currentMovie, setCurrentMovie] = useState();
+  const setMovieFullInfoType = useCallback(
+    (chosenMovie) => () => {
+      setViewType(typeOfView.MovieFullInfo);
+      setCurrentMovie(chosenMovie);
+    },
+    []
+  );
   const setMovieListType = useCallback(() => setViewType(typeOfView.movieList), []);
 
   return (
     <>
       <GlobalStyle />
-      <Header viewType={viewType} onSetMovieListType={setMovieListType} />
+      <Header
+        viewType={viewType}
+        currentMovie={currentMovie}
+        onSetMovieListType={setMovieListType}
+      />
       <MoviesSorter />
       <ErrorBoundaryMoviesList>
         <MoviesList onSetMovieFullInfoType={setMovieFullInfoType} />

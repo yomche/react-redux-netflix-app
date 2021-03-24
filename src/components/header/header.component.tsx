@@ -10,9 +10,16 @@ import { typeOfView } from '../../constants/app.constants';
 type HeaderProps = {
   viewType: string;
   onSetMovieListType: () => void;
+  currentMovie: {
+    poster_path: string;
+    title: string;
+    release_date: string;
+    overview: string;
+    id: number;
+  };
 };
 
-export const Header: FC<HeaderProps> = ({ viewType, onSetMovieListType }) => (
+export const Header: FC<HeaderProps> = ({ viewType, currentMovie, onSetMovieListType }) => (
   <StyledHeader>
     <NavPanel onClickToChange={onSetMovieListType} />
     {viewType === typeOfView.movieList ? (
@@ -21,7 +28,7 @@ export const Header: FC<HeaderProps> = ({ viewType, onSetMovieListType }) => (
         <Controls />
       </>
     ) : (
-      <MovieFullInfo />
+      <MovieFullInfo currentMovieFullInfo={currentMovie} />
     )}
   </StyledHeader>
 );
