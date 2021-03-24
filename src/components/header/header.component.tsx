@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import React, { FC } from 'react';
 import { StyledHeader } from './header.styles';
 import { Controls } from '../controls/controls.component';
@@ -10,9 +11,10 @@ import { typeOfView } from '../../constants/app.constants';
 type HeaderProps = {
   viewType: string;
   onSetMovieListType: () => void;
+  currentFilm: object;
 };
 
-export const Header: FC<HeaderProps> = ({ viewType, onSetMovieListType }) => (
+export const Header: FC<HeaderProps> = ({ viewType, currentFilm, onSetMovieListType }) => (
   <StyledHeader>
     <NavPanel onClickToChange={onSetMovieListType} />
     {viewType === typeOfView.movieList ? (
@@ -21,7 +23,7 @@ export const Header: FC<HeaderProps> = ({ viewType, onSetMovieListType }) => (
         <Controls />
       </>
     ) : (
-      <MovieFullInfo />
+      <MovieFullInfo currentFilm={currentFilm} />
     )}
   </StyledHeader>
 );

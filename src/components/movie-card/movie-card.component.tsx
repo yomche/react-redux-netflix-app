@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import React, { FC } from 'react';
 import {
   StyledMovieCard,
@@ -13,11 +14,21 @@ type MovieCardProps = {
   title: string;
   genre: string;
   date: string;
-  onClickToChange: () => void;
+  description: string;
+  key: number;
+  onClickToChange: (param: object) => void;
 };
 
-export const MovieCard: FC<MovieCardProps> = ({ poster, title, genre, date, onClickToChange }) => (
-  <StyledMovieCard onClick={onClickToChange}>
+export const MovieCard: FC<MovieCardProps> = ({
+  poster,
+  title,
+  genre,
+  date,
+  description,
+  key,
+  onClickToChange,
+}) => (
+  <StyledMovieCard onClick={onClickToChange({ poster, title, date, description, key })}>
     <MovieCardPoster src={poster} />
     <StyledMovieCardTitle> {title} </StyledMovieCardTitle>
     <StyledMovieCardInfo>
