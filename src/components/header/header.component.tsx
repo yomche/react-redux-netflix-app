@@ -11,9 +11,9 @@ type HeaderProps = {
   viewType: string;
   onSetMovieListType: () => void;
   currentMovie: {
-    poster_path: string;
+    posterPath: string;
     title: string;
-    release_date: string;
+    releaseDate: string;
     overview: string;
     id: number;
   };

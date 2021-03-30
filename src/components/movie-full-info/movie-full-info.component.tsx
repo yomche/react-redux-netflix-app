@@ -4,9 +4,9 @@ import { MovieCardFullSize } from '../movie-card-full-size/movie-card-full-size.
 
 type MovieFullInfoProps = {
   currentMovieFullInfo: {
-    poster_path: string;
+    posterPath: string;
     title: string;
-    release_date: string;
+    releaseDate: string;
     overview: string;
     id: number;
   };
@@ -15,9 +15,9 @@ type MovieFullInfoProps = {
 export const MovieFullInfo: FC<MovieFullInfoProps> = ({ currentMovieFullInfo }) => (
   <StyledMovieFullInfoHeader>
     <MovieCardFullSize
-      poster_path={currentMovieFullInfo.poster_path}
+      posterPath={currentMovieFullInfo.posterPath}
       title={currentMovieFullInfo.title}
-      release_date={currentMovieFullInfo.release_date}
+      releaseDate={currentMovieFullInfo.releaseDate}
       overview={currentMovieFullInfo.overview}
       key={currentMovieFullInfo.id}
     />

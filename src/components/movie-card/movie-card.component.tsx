@@ -9,34 +9,34 @@ import {
 } from './movie-card.styles';
 
 type MovieCardProps = {
-  poster_path: string;
+  posterPath: string;
   title: string;
   genre: string;
-  release_date: string;
+  releaseDate: string;
   overview: string;
   key: number;
   onClickToChange: (currentMovie: {
-    poster_path: string;
+    posterPath: string;
     title: string;
-    release_date: string;
+    releaseDate: string;
     overview: string;
   }) => React.MouseEventHandler<HTMLLIElement>;
 };
 
 export const MovieCard: FC<MovieCardProps> = ({
-  poster_path,
+  posterPath,
   title,
   genre,
-  release_date,
+  releaseDate,
   overview,
   onClickToChange,
 }) => (
-  <StyledMovieCard onClick={onClickToChange({ poster_path, title, release_date, overview })}>
-    <MovieCardPoster src={poster_path} />
+  <StyledMovieCard onClick={onClickToChange({ posterPath, title, releaseDate, overview })}>
+    <MovieCardPoster src={posterPath} />
     <StyledMovieCardTitle> {title} </StyledMovieCardTitle>
     <StyledMovieCardInfo>
       <StyledMovieCardGenre> {genre} </StyledMovieCardGenre>
-      <StyledMovieCardDate> {release_date} </StyledMovieCardDate>
+      <StyledMovieCardDate> {releaseDate} </StyledMovieCardDate>
     </StyledMovieCardInfo>
   </StyledMovieCard>
 );
