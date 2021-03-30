@@ -1,30 +1,10 @@
-import React, { ComponentProps } from 'react';
+import React from 'react';
 
-import { Story } from '@storybook/react';
-
+import { storiesOf } from '@storybook/react';
+import { withKnobs, optionsKnob as options } from '@storybook/addon-knobs';
 import { Header } from './header.component';
 
-import { withKnobs, optionsKnob as options } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
-
-export default {
-  title: 'Components/Header',
-  component: Header,
-};
-
-const Template: Story<ComponentProps<typeof Header>> = (args) => <Header {...args} />;
-
-export const MovieList = Template.bind({});
-MovieList.args = {
-  viewType: 'movieList',
-};
-
-export const MovieFullInfo = Template.bind({});
-MovieFullInfo.args = {
-  viewType: 'movieFullInfo',
-};
-
-storiesOf('Header with Knobs', module)
+storiesOf('Knobs/Header', module)
   .addDecorator(withKnobs)
   .add('different view types', () => {
     const viewType = {
@@ -32,6 +12,23 @@ storiesOf('Header with Knobs', module)
       MovieFullInfo: 'movieFullInfo',
     };
     const viewTypeSelect = options('viewType', viewType, 'movieList', { display: 'select' });
+    const currentMovie = {
+      posterPath:
+        'https://sun9-72.userapi.com/impf/a-V1H8zLHXqzMb3UY8yzgicFlOVZkHw4TNXeLQ/PHLkRY64ehg.jpg?size=1459x2160&quality=96&sign=1063b2565af2a89c8ae442b61427f9e7&type=album',
+      title: 'Black Mirror',
+      releaseDate: '2011-02-07',
+      overview:
+        'Set in a world only minutes from our own, Black Mirror unveils how modern technologies can backfire and be used against their makers, every episode set in a slightly different reality with different characters combating different types of technologies.',
+      id: 0,
+    };
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    function setMovieListType() {}
 
-    return <Header viewType={viewTypeSelect} />;
+    return (
+      <Header
+        viewType={viewTypeSelect}
+        currentMovie={currentMovie}
+        onSetMovieListType={setMovieListType}
+      />
+    );
   });
