@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -72,14 +73,16 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         loader: 'file-loader',
         options: {
-          name: '[path][name].[ext]',
+          name: '[name].[ext]',
+          outputPath: 'images',
         },
       },
       {
         test: /\.(eot|otf|svg|ttf|woff|woff2)$/i,
         loader: "file-loader",
         options: {
-          name: "[path][name].[ext]",
+          name: "[name].[ext]",
+          outputPath: 'images',
         }
       }
     ],
@@ -103,6 +106,11 @@ module.exports = {
       filename: '[fullhash].style.css',
     }),
 
-    new FaviconsWebpackPlugin('./assets/netflix_logo.png')
+    new FaviconsWebpackPlugin('./assets/netflix_logo.png'),
+
+    new CopyWebpackPlugin( {
+      patterns: [{from:'./assets',to:'./assets'} ]
+    } 
+   )
   ]
 };

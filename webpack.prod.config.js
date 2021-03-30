@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -98,6 +99,11 @@ module.exports = {
       filename: '[fullhash].style.css',
     }),
 
-    new FaviconsWebpackPlugin('./assets/netflix_logo.png')
+    new FaviconsWebpackPlugin('./assets/netflix_logo.png'),
+
+    new CopyWebpackPlugin( {
+      patterns: [{from:'./assets',to:'./assets'} ]
+    } 
+   )
   ]
 };
