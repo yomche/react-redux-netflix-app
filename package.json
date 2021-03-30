@@ -14,7 +14,7 @@
     "eslint": "eslint . --ext .tsx --fix",
     "stylelint": "stylelint --fix styles/styles.scss",
     "prettier": "prettier --write .",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 -s .",
     "build-storybook": "build-storybook"
   },
   "repository": {
