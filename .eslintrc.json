@@ -4,23 +4,63 @@
         "node": true
     },
     "extends": [
-        "airbnb", "plugin:@typescript-eslint/recommended"
+        "airbnb",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
-            "jsx": true
+            "jsx": true,
+            "modules": true
         },
         "ecmaVersion": 12,
         "sourceType": "module"
+    },
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "map": [
+                    [
+                        "components",
+                        "./src/components"
+                    ]
+                ],
+                "extensions": [
+                    ".ts",
+                    ".tsx",
+                    ".json"
+                ]
+            }
+        }
     },
     "plugins": [
         "react",
         "@typescript-eslint"
     ],
     "rules": {
-        "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".jsx",
+                    ".tsx"
+                ]
+            }
+        ],
         "no-use-before-define": "off",
-        "@typescript-eslint/no-use-before-define": ["error", { "functions": true, "classes": true, "variables": true }]
+        "react/prop-types": 0,
+        "@typescript-eslint/no-use-before-define": [
+            "error",
+            {
+                "functions": true,
+                "classes": true,
+                "variables": true
+            }
+        ],
+        "import/prefer-default-export": "off",
+        "import/extensions": "off",
+        "camelcase": "off",
+        "react/jsx-props-no-spreading": "off"
     }
 }

@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -13,7 +15,7 @@ module.exports = {
 
   target: 'web',
 
-  entry: './src/index.jsx',
+  entry: './src/index.tsx',
 
   output: {
     publicPath: '',
@@ -26,6 +28,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
+          'style-loader',
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
@@ -39,6 +42,7 @@ module.exports = {
       {
         test: /\.scss$/i,
         use: [
+          'style-loader',
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
@@ -53,13 +57,13 @@ module.exports = {
         ],
       },
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)$/,
         loader: 'ts-loader',
         options: { transpileOnly: true },
         exclude: /node_modules/,
       },
       {
-        test: /\.jsx$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
@@ -69,14 +73,16 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         loader: 'file-loader',
         options: {
-          name: '[path][name].[ext]',
+          name: '[name].[ext]',
+          outputPath: 'images',
         },
       },
       {
         test: /\.(eot|otf|svg|ttf|woff|woff2)$/i,
         loader: "file-loader",
         options: {
-          name: "[path][name].[ext]",
+          name: "[name].[ext]",
+          outputPath: 'images',
         }
       }
     ],
@@ -92,12 +98,19 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'React Components',
+      title: 'Netflix EPAM',
       template: "./index.html"
     }),
 
     new MiniCssExtractPlugin({
       filename: '[fullhash].style.css',
-    })
+    }),
+
+    new FaviconsWebpackPlugin('./assets/netflix_logo.png'),
+
+    new CopyWebpackPlugin( {
+      patterns: [{from:'./assets',to:'./assets'} ]
+    } 
+   )
   ]
 };

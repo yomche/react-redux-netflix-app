@@ -4,6 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -12,7 +14,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
 
-  entry: './src/index.jsx',
+  entry: './src/index.tsx',
 
   output: {
     publicPath: '',
@@ -25,6 +27,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
+          'style-loader',
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
@@ -37,6 +40,7 @@ module.exports = {
       {
         test: /\.scss$/i,
         use: [
+          'style-loader',
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
@@ -50,13 +54,13 @@ module.exports = {
         ],
       },
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)$/,
         loader: 'ts-loader',
         options: { transpileOnly: true },
         exclude: /node_modules/,
       },
       {
-        test: /\.jsx$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
@@ -87,12 +91,19 @@ module.exports = {
     new CompressionPlugin(),
 
     new HtmlWebpackPlugin({
-      title: 'React Components',
+      title: 'Netflix EPAM',
       template: "./index.html"
     }),
 
     new MiniCssExtractPlugin({
       filename: '[fullhash].style.css',
-    })
+    }),
+
+    new FaviconsWebpackPlugin('./assets/netflix_logo.png'),
+
+    new CopyWebpackPlugin( {
+      patterns: [{from:'./assets',to:'./assets'} ]
+    } 
+   )
   ]
 };
