@@ -1,19 +1,9 @@
-export const setViewType = {
-  type: 'SET_VIEW_TYPE',
-  payload: '',
-};
+import { viewType, currentMovie } from './action-types';
 
-export const setCurrentMovie = {
-  type: 'SET_CURRENT_MOVIE',
-  payload: '',
-};
+export function setViewType(payload: string): Record<string, unknown> {
+  return { type: viewType, payload };
+}
 
-export const setMovieFullInfoType = {
-  type: 'SET_MOVIE_FULL_INFO_TYPE',
-  payload: '',
-};
-
-export const setMovieListType = {
-  type: 'SET_MOVIE_LIST_TYPE',
-  payload: '',
-};
+export function setCurrentMovie(payload: Record<string, unknown>): Record<string, unknown> {
+  return { type: currentMovie, payload };
+}
