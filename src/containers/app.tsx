@@ -1,4 +1,5 @@
-import React, { FC, useState, useCallback } from 'react';
+import React, { FC, useCallback } from 'react';
+import { useDispatch, connect } from 'react-redux';
 
 import { typeOfView } from '../constants/app.constants';
 import { GlobalStyle } from '../../styles/global-styles';
@@ -7,18 +8,29 @@ import { MoviesList } from '../components/movies-list/movies-list.component';
 import { Footer } from '../components/footer/footer.component';
 import { MoviesSorter } from '../components/movies-sorter/movies-sorter.component';
 import { ErrorBoundaryMoviesList } from './error-boundary';
+import { setViewType, setCurrentMovie } from '../actions';
 
-export const App: FC = () => {
-  const [viewType, setViewType] = useState(typeOfView.movieList);
-  const [currentMovie, setCurrentMovie] = useState();
+type AppProps = {
+  viewType: string;
+  currentMovie: {
+    posterPath: string;
+    title: string;
+    releaseDate: string;
+    overview: string;
+    id: number;
+  };
+};
+
+const AppComponent: FC<AppProps> = ({ viewType, currentMovie }) => {
+  const dispatch = useDispatch();
   const setMovieFullInfoType = useCallback(
     (chosenMovie) => () => {
-      setViewType(typeOfView.MovieFullInfo);
-      setCurrentMovie(chosenMovie);
+      dispatch(setViewType(typeOfView.movieFullInfo));
+      dispatch(setCurrentMovie(chosenMovie));
     },
     []
   );
-  const setMovieListType = useCallback(() => setViewType(typeOfView.movieList), []);
+  const setMovieListType = useCallback(() => dispatch(setViewType(typeOfView.movieList)), []);
 
   return (
     <>
@@ -36,3 +48,10 @@ export const App: FC = () => {
     </>
   );
 };
+
+const mapStateToProps = (state: { viewType: string; currentMovie: Record<string, unknown> }) => ({
+  viewType: state.viewType,
+  currentMovie: state.currentMovie,
+});
+
+export const App = connect(mapStateToProps)(AppComponent);
