@@ -1,5 +1,10 @@
 import { combineReducers } from 'redux';
-import { viewTypeReducer } from './viewType';
-import { currentMovieReducer } from './currentMovie';
+import { moviesData } from './movies-data';
+import { viewTypeData } from './view-type';
+import { currentMovieData } from './current-movie';
 
-export const rootReducer = combineReducers({ viewTypeReducer, currentMovieReducer });
+export const rootReducer = combineReducers({
+  moviesData,
+  viewTypeData,
+  currentMovieData,
+});

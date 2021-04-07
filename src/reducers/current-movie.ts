@@ -4,7 +4,7 @@ export const initialState = {
   currentMovie: {},
 };
 
-export function currentMovieReducer(
+export function currentMovieData(
   state = initialState,
   action: { type: string; payload: string }
 ): Record<string, unknown> {

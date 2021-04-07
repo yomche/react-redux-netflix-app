@@ -5,7 +5,7 @@ export const initialState = {
   viewType: typeOfView.movieList,
 };
 
-export function viewTypeReducer(
+export function viewTypeData(
   state = initialState,
   action: { type: string; payload: string }
 ): Record<string, unknown> {
