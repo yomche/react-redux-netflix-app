@@ -1,19 +1,14 @@
 import { viewType } from '../actions/action-types';
+import { typeOfView } from '../constants/app.constants';
 
-export const initialState = {
-  viewType: 'movieList',
-};
-
-type viewTypePayload = {
-  viewType: string;
-};
+export const initialState = typeOfView.movieList;
 
 export function viewTypeData(
   state = initialState,
-  action: { type: string; payload: viewTypePayload }
-): Record<string, unknown> {
+  action: { type: string; payload: string }
+): string {
   if (action.type === viewType) {
-    return { ...state, viewType: action.payload };
+    return action.payload;
   }
   return state;
 }
