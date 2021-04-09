@@ -1,28 +1,37 @@
-import { viewType, currentMovie, fetchSuccess, fetchFail } from './action-types';
+import { viewType, currentMovie, fetchSuccess } from './action-types';
+import { currentMovieType, moviesDataType, moviesUrl } from '../constants/app.constants';
 
-export function setViewType(payload: unknown): Record<string, unknown> {
+type actionViewType = {
+  type: string;
+  payload: string;
+};
+
+export function setViewType(payload: string): actionViewType {
   return { type: viewType, payload };
 }
 
-export function setCurrentMovie(payload: unknown): Record<string, unknown> {
+type actionCurrentMovie = {
+  type: string;
+  payload: currentMovieType;
+};
+
+export function setCurrentMovie(payload: currentMovieType): actionCurrentMovie {
   return { type: currentMovie, payload };
 }
 
-export function setMoviesSuccess(payload: unknown): Record<string, unknown> {
+type actionMoviesSuccess = {
+  type: string;
+  payload: moviesDataType;
+};
+
+export function setMoviesSuccess(payload: moviesDataType): actionMoviesSuccess {
   return { type: fetchSuccess, payload };
 }
 
-export function setMoviesFail(payload: unknown): Record<string, unknown> {
-  return { type: fetchFail, payload };
-}
-
-export const fetchMovies = () => (dispatch: (arg: Record<string, unknown>) => void): void => {
-  const moviesUrl = 'http://react-cdp-api.herokuapp.com/movies';
-
+export const fetchMovies = () => (dispatch: (actionCreator: actionMoviesSuccess) => void): void => {
   fetch(moviesUrl)
     .then((response) => response.json())
     .then((moviesData) => {
       dispatch(setMoviesSuccess(moviesData));
-    })
-    .catch((error) => dispatch(setMoviesFail(error)));
+    });
 };
