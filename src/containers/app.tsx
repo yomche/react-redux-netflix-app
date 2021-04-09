@@ -13,7 +13,7 @@ import { RootState } from '../store';
 
 export const App: FC = () => {
   const { viewType, currentMovie, moviesData } = useSelector((state: RootState) => ({
-    viewType: state.viewTypeData.viewType,
+    viewType: state.viewTypeData,
     currentMovie: state.currentMovieData,
     moviesData: state.moviesData.data,
   }));
