@@ -1,15 +1,20 @@
 import { currentMovie } from '../actions/action-types';
+import { currentMovieType } from '../constants/app.constants';
 
-export const initialState = {
-  currentMovie: {},
+export const initialState: currentMovieType = {
+  posterPath: '',
+  title: '',
+  releaseDate: '',
+  overview: '',
+  id: 0,
 };
 
 export function currentMovieData(
   state = initialState,
-  action: { type: string; payload: string }
-): Record<string, unknown> {
+  action: { type: string; payload: currentMovieType }
+): currentMovieType {
   if (action.type === currentMovie) {
-    return { ...state, currentMovie: action.payload };
+    return action.payload;
   }
   return state;
 }
