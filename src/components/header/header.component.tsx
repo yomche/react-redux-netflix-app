@@ -7,7 +7,7 @@ import { MovieFullInfo } from '../movie-full-info/movie-full-info.component';
 import { typeOfView, currentMovieType } from '../../constants/app.constants';
 
 type HeaderProps = {
-  viewType: unknown;
+  viewType: string;
   onSetMovieListType: () => void;
   currentMovie: currentMovieType;
 };
