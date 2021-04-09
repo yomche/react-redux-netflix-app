@@ -9,12 +9,12 @@ import { Footer } from '../components/footer/footer.component';
 import { MoviesSorter } from '../components/movies-sorter/movies-sorter.component';
 import { ErrorBoundaryMoviesList } from './error-boundary';
 import { setViewType, setCurrentMovie, fetchMovies } from '../actions';
-import { RootState } from '../reducers/index';
+import { RootState } from '../store';
 
 export const App: FC = () => {
   const { viewType, currentMovie, moviesData } = useSelector((state: RootState) => ({
     viewType: state.viewTypeData.viewType,
-    currentMovie: state.currentMovieData.currentMovie,
+    currentMovie: state.currentMovieData,
     moviesData: state.moviesData.data,
   }));
   const dispatch = useDispatch();
