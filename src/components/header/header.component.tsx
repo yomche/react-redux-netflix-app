@@ -4,19 +4,12 @@ import { Controls } from '../controls/controls.component';
 import { SearchInput } from '../search-input/search-input.component';
 import { NavPanel } from '../nav-panel/nav-panel.component';
 import { MovieFullInfo } from '../movie-full-info/movie-full-info.component';
-
-import { typeOfView } from '../../constants/app.constants';
+import { typeOfView, currentMovieType } from '../../constants/app.constants';
 
 type HeaderProps = {
-  viewType: string;
+  viewType: unknown;
   onSetMovieListType: () => void;
-  currentMovie: {
-    posterPath: string;
-    title: string;
-    releaseDate: string;
-    overview: string;
-    id: number;
-  };
+  currentMovie: currentMovieType;
 };
 
 export const Header: FC<HeaderProps> = ({ viewType, currentMovie, onSetMovieListType }) => (
