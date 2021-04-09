@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useEffect } from 'react';
-import { useDispatch, connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { typeOfView } from '../constants/app.constants';
 import { GlobalStyle } from '../../styles/global-styles';
@@ -9,19 +9,14 @@ import { Footer } from '../components/footer/footer.component';
 import { MoviesSorter } from '../components/movies-sorter/movies-sorter.component';
 import { ErrorBoundaryMoviesList } from './error-boundary';
 import { setViewType, setCurrentMovie, fetchMovies } from '../actions';
+import { RootState } from '../reducers/index';
 
-type AppProps = {
-  viewType: string;
-  currentMovie: {
-    posterPath: string;
-    title: string;
-    releaseDate: string;
-    overview: string;
-    id: number;
-  };
-};
-
-const AppComponent: FC<AppProps> = ({ viewType, currentMovie }) => {
+export const App: FC = () => {
+  const { viewType, currentMovie, moviesData } = useSelector((state: RootState) => ({
+    viewType: state.viewTypeData.viewType,
+    currentMovie: state.currentMovieData.currentMovie,
+    moviesData: state.moviesData.data,
+  }));
   const dispatch = useDispatch();
   const setMovieFullInfoType = useCallback(
     (chosenMovie) => () => {
@@ -32,7 +27,7 @@ const AppComponent: FC<AppProps> = ({ viewType, currentMovie }) => {
   );
   const setMovieListType = useCallback(() => dispatch(setViewType(typeOfView.movieList)), []);
 
-  const moviesData = useEffect(() => {
+  useEffect(() => {
     dispatch(fetchMovies());
   }, []);
 
@@ -52,15 +47,3 @@ const AppComponent: FC<AppProps> = ({ viewType, currentMovie }) => {
     </>
   );
 };
-
-const mapStateToProps = (state: {
-  viewType: string;
-  currentMovie: Record<string, unknown>;
-  viewTypeData: Record<string, unknown>;
-  currentMovieData: Record<string, unknown>;
-}) => ({
-  viewType: state.viewTypeData.viewType,
-  currentMovie: state.currentMovieData.currentMovie,
-});
-
-export const App = connect(mapStateToProps)(AppComponent);
