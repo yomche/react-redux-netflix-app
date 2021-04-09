@@ -11,7 +11,7 @@
     "test": "jest --verbose --coverage --update-snapshot",
     "start": "webpack serve --config webpack.dev.config.js --hot",
     "build": "webpack --config webpack.prod.config.js",
-    "eslint": "eslint . --ext .tsx --fix",
+    "eslint": "eslint . --fix",
     "stylelint": "stylelint --fix styles/styles.scss",
     "prettier": "prettier --write .",
     "storybook": "start-storybook -p 6006 -s .",
@@ -89,6 +89,7 @@
   "dependencies": {
     "@storybook/addon-knobs": "^6.1.21",
     "@storybook/react": "^6.1.21",
+    "@types/react-redux": "^7.1.16",
     "core-js": "^3.9.1",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-import-resolver-node": "^0.3.4",
