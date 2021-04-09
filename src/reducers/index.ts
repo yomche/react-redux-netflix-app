@@ -8,5 +8,3 @@ export const rootReducer = combineReducers({
   viewTypeData,
   currentMovieData,
 });
-
-export type RootState = ReturnType<typeof rootReducer>;
