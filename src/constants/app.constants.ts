@@ -1,8 +1,11 @@
+// bug ??
 // eslint-disable-next-line no-shadow
 export enum typeOfView {
   movieList = 'movieList',
   movieFullInfo = 'movieFullInfo',
 }
+
+export const moviesUrl = 'http://react-cdp-api.herokuapp.com/movies';
 
 export type dataType = {
   data: [moviesDataType];
