@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { StyledMoviesList, StyledContainer } from './movies-list.styles';
 import { MovieCard } from '../movie-card/movie-card.component';
-import { moviesDataType } from '../../constants/app.constants';
+import { MoviesDataType } from '../../types';
 
 type MoviesListProps = {
-  moviesData: [moviesDataType];
+  moviesData: [MoviesDataType];
   onSetMovieFullInfoType: (currentMovie: {
     posterPath: string;
     title: string;
