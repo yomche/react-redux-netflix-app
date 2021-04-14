@@ -8,14 +8,24 @@ import {
   StyledSorterDataHeading,
 } from './movies-sorter.styles';
 
-export const MoviesSorter: FC = () => (
+type MoviesSorterProps = {
+  moviesAmount: number;
+  onSetMovieSortByDate: () => void;
+  onSetMovieSortByRating: () => void;
+};
+
+export const MoviesSorter: FC<MoviesSorterProps> = ({
+  moviesAmount,
+  onSetMovieSortByDate,
+  onSetMovieSortByRating,
+}) => (
   <StyledSorter>
     <StyledSorterInfo>
-      <StyledSorterFoundData>6 movies found</StyledSorterFoundData>
+      <StyledSorterFoundData>{moviesAmount} movies found</StyledSorterFoundData>
       <StyledSorterResult>
         <StyledSorterDataHeading>Sort by </StyledSorterDataHeading>
-        <StyledSorterData> release date </StyledSorterData>
-        <StyledSorterData>rating</StyledSorterData>
+        <StyledSorterData onClick={onSetMovieSortByDate}> release date </StyledSorterData>
+        <StyledSorterData onClick={onSetMovieSortByRating}>rating</StyledSorterData>
       </StyledSorterResult>
     </StyledSorterInfo>
   </StyledSorter>
