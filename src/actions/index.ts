@@ -1,37 +1,81 @@
-import { viewType, currentMovie, fetchSuccess } from './action-types';
-import { currentMovieType, moviesDataType, moviesUrl } from '../constants/app.constants';
+import {
+  viewTypeAction,
+  currentMovieAction,
+  searchInputValueAction,
+  fetchSuccessAction,
+  fetchSortByDateAction,
+  fetchSortByRatingAction,
+} from './action-names';
+import { moviesUrl, moviesUrlSortByDate, moviesUrlSortByRating } from '../constants/app.constants';
+import { CurrentMovieType, MoviesDataType } from '../types';
 
-type actionViewType = {
+type ActionViewType = {
   type: string;
   payload: string;
 };
 
-export function setViewType(payload: string): actionViewType {
-  return { type: viewType, payload };
+export function setViewType(payload: string): ActionViewType {
+  return { type: viewTypeAction, payload };
 }
 
-type actionCurrentMovie = {
+type ActionCurrentMovie = {
   type: string;
-  payload: currentMovieType;
+  payload: CurrentMovieType;
 };
 
-export function setCurrentMovie(payload: currentMovieType): actionCurrentMovie {
-  return { type: currentMovie, payload };
+export function setCurrentMovie(payload: CurrentMovieType): ActionCurrentMovie {
+  return { type: currentMovieAction, payload };
 }
 
-type actionMoviesSuccess = {
+type ActionSearchInputValue = {
   type: string;
-  payload: moviesDataType;
+  payload: string;
 };
 
-export function setMoviesSuccess(payload: moviesDataType): actionMoviesSuccess {
-  return { type: fetchSuccess, payload };
+export function setSearchInputValue(payload: string): ActionSearchInputValue {
+  return { type: searchInputValueAction, payload };
 }
 
-export const fetchMovies = () => (dispatch: (actionCreator: actionMoviesSuccess) => void): void => {
+type ActionMoviesSuccess = {
+  type: string;
+  payload: MoviesDataType;
+};
+
+export function setMoviesSuccess(payload: MoviesDataType): ActionMoviesSuccess {
+  return { type: fetchSuccessAction, payload };
+}
+
+export function setMoviesSortByDate(payload: MoviesDataType): ActionMoviesSuccess {
+  return { type: fetchSortByDateAction, payload };
+}
+export function setMoviesSortByRating(payload: MoviesDataType): ActionMoviesSuccess {
+  return { type: fetchSortByRatingAction, payload };
+}
+
+export const fetchMovies = () => (dispatch: (actionCreator: ActionMoviesSuccess) => void): void => {
   fetch(moviesUrl)
     .then((response) => response.json())
     .then((moviesData) => {
       dispatch(setMoviesSuccess(moviesData));
+    });
+};
+
+export const fetchMoviesByDate = () => (
+  dispatch: (actionCreator: ActionMoviesSuccess) => void
+): void => {
+  fetch(moviesUrlSortByDate)
+    .then((response) => response.json())
+    .then((moviesDataByDate) => {
+      dispatch(setMoviesSortByDate(moviesDataByDate));
+    });
+};
+
+export const fetchMoviesByRating = () => (
+  dispatch: (actionCreator: ActionMoviesSuccess) => void
+): void => {
+  fetch(moviesUrlSortByRating)
+    .then((response) => response.json())
+    .then((moviesDataByRating) => {
+      dispatch(setMoviesSortByRating(moviesDataByRating));
     });
 };
