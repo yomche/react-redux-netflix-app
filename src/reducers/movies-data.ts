@@ -1,16 +1,24 @@
-import { fetchSuccess } from '../actions/action-types';
-import { dataType } from '../constants/app.constants';
+import {
+  fetchSuccessAction,
+  fetchSortByDateAction,
+  fetchSortByRatingAction,
+} from '../actions/action-names';
+import { DataType } from '../types';
 
-const initialState: dataType = {
+const initialState: DataType = {
   data: [{ poster_path: '', title: '', release_date: '', genres: '', overview: '', id: 0 }],
 };
 
 export const moviesData = (
   state = initialState,
-  action: { type: string; payload: dataType }
-): dataType => {
+  action: { type: string; payload: DataType }
+): DataType => {
   switch (action.type) {
-    case fetchSuccess:
+    case fetchSuccessAction:
+      return action.payload;
+    case fetchSortByDateAction:
+      return action.payload;
+    case fetchSortByRatingAction:
       return action.payload;
     default:
       return state;
