@@ -14,6 +14,8 @@ import {
   fetchMovies,
   fetchMoviesByDate,
   fetchMoviesByRating,
+  setSearchBy,
+  updateFormState,
 } from '../actions';
 import { RootState } from '../store';
 
@@ -35,6 +37,9 @@ export const App: FC = () => {
   const setMovieListType = useCallback(() => dispatch(setViewType(TypeOfView.movieList)), []);
   const setMovieSortByDate = useCallback(() => dispatch(fetchMoviesByDate()), []);
   const setMovieSortByRating = useCallback(() => dispatch(fetchMoviesByRating()), []);
+  const setToggleSearchByGenre = useCallback(() => dispatch(setSearchBy('genre')), []);
+  const setToggleSearchByTitle = useCallback(() => dispatch(setSearchBy('title')), []);
+  const updateForm = useCallback((value) => () => dispatch(updateFormState(value)), []);
 
   useEffect(() => {
     dispatch(fetchMovies());
@@ -45,6 +50,9 @@ export const App: FC = () => {
       <GlobalStyle />
       <Header
         viewType={viewType}
+        onSetToggleSearchByGenre={setToggleSearchByGenre}
+        onSetToggleSearchByTitle={setToggleSearchByTitle}
+        updateForm={updateForm}
         currentMovie={currentMovie}
         onSetMovieListType={setMovieListType}
       />
