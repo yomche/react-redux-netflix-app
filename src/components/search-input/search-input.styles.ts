@@ -9,6 +9,14 @@ const BUTTON_COLOR = '#a9a9a9';
 export const StyledSearchForm = styled.form`
   width: 1000px;
   margin: auto;
+  & > input {
+    width: 1000px;
+    height: 30px;
+    font-size: 20px;
+    color: ${FONT_COLOR};
+    background-color: ${BACKGROUND_COLOR};
+    border-bottom: 2px solid ${BORDER_COLOR};
+  }
 `;
 
 export const StyledHeading = styled.h1`
