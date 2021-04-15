@@ -18,3 +18,7 @@ export type CurrentMovieType = {
   overview: string;
   id: number;
 };
+
+export type FormStateType = {
+  inputValue: string;
+};

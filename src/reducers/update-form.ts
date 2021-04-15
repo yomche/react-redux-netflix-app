@@ -1,17 +1,15 @@
 import { updateFormStateAction } from '../actions/action-names';
+import { FormStateType } from '../types';
 
-const initialState: any = null;
+const initialState = { inputValue: '' };
 
 export function formStateData(
   state = initialState,
-  action: { type: any; form: any; payload: any }
-) {
+  action: { type: string; payload: FormStateType }
+): FormStateType {
   switch (action.type) {
     case updateFormStateAction:
-      return {
-        ...state,
-        [action.form]: action.payload,
-      };
+      return action.payload;
     default:
       return state;
   }
