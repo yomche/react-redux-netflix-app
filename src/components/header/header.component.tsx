@@ -10,22 +10,18 @@ type HeaderProps = {
   viewType: string;
   onSetMovieListType: () => void;
   currentMovie: CurrentMovieType;
-  searchInputValue: string;
-  onSetSearchInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const Header: FC<HeaderProps> = ({
   viewType,
   currentMovie,
   onSetMovieListType,
-  onSetSearchInputChange,
-  searchInputValue,
 }) => (
   <StyledHeader>
     <NavPanel onClickToChange={onSetMovieListType} />
     {viewType === TypeOfView.movieList ? (
       <>
-        <SearchInput handleChange={onSetSearchInputChange} inputValue={searchInputValue} />
+        <SearchInput />
       </>
     ) : (
       <MovieFullInfo currentMovieFullInfo={currentMovie} />
