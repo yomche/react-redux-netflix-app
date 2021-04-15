@@ -1,35 +1,25 @@
 import React, { FC } from 'react';
-import { Form } from 'react-final-form';
+import { Form, Field } from 'react-final-form';
 import {
   StyledSearchForm,
   StyledHeading,
-  StyledSearchInput,
   StyledControlsSection,
   StyledTitleButton,
   StyledGenreButton,
   StyledSubmitButton,
 } from './search-input.styles';
 
-type SearchInputProps = {
-  inputValue: string;
-  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
-
-export const SearchInput: FC<SearchInputProps> = ({ handleChange, inputValue }) => (
+export const SearchInput: FC = () => (
   <Form
-    onSubmit={() => {
+    onSubmit={(value) => {
       // eslint-disable-next-line no-console
-      console.log(`Введенный фильм: ${inputValue}`);
+      console.log(value);
     }}
-    render={({ handleSubmit }) => (
+  >
+    {({ handleSubmit }) => (
       <StyledSearchForm onSubmit={handleSubmit}>
         <StyledHeading>FIND YOUR MOVIE</StyledHeading>
-        <StyledSearchInput
-          type="text"
-          value={inputValue}
-          placeholder="Quentin Tarantino"
-          onChange={handleChange}
-        />
+        <Field name="movieName" component="input" type="text" placeholder="Quentin Tarantino" />
         <StyledControlsSection>
           <StyledTitleButton> TITLE </StyledTitleButton>
           <StyledGenreButton> GENRE </StyledGenreButton>
@@ -37,5 +27,5 @@ export const SearchInput: FC<SearchInputProps> = ({ handleChange, inputValue }) 
         </StyledControlsSection>
       </StyledSearchForm>
     )}
-  />
+  </Form>
 );
