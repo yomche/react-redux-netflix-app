@@ -15,15 +15,25 @@ export const SearchInput: FC = () => (
       // eslint-disable-next-line no-console
       console.log(value);
     }}
+    subscription={{ submitting: true, pristine: true }}
   >
-    {({ handleSubmit }) => (
+    {({ handleSubmit, submitting, pristine }) => (
       <StyledSearchForm onSubmit={handleSubmit}>
         <StyledHeading>FIND YOUR MOVIE</StyledHeading>
         <Field name="movieName" component="input" type="text" placeholder="Quentin Tarantino" />
         <StyledControlsSection>
-          <StyledTitleButton> TITLE </StyledTitleButton>
-          <StyledGenreButton> GENRE </StyledGenreButton>
-          <StyledSubmitButton> SUBMIT </StyledSubmitButton>
+          <StyledTitleButton type="button" onClick={() => console.log('title button')}>
+            {' '}
+            TITLE{' '}
+          </StyledTitleButton>
+          <StyledGenreButton type="button" onClick={() => console.log('genre button')}>
+            {' '}
+            GENRE{' '}
+          </StyledGenreButton>
+          <StyledSubmitButton type="submit" disabled={submitting || pristine}>
+            {' '}
+            SUBMIT{' '}
+          </StyledSubmitButton>
         </StyledControlsSection>
       </StyledSearchForm>
     )}
