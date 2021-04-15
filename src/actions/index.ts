@@ -1,7 +1,7 @@
 import {
   viewTypeAction,
   currentMovieAction,
-  searchInputValueAction,
+  updateFormStateAction,
   fetchSuccessAction,
   fetchSortByDateAction,
   fetchSortByRatingAction,
@@ -27,14 +27,11 @@ export function setCurrentMovie(payload: CurrentMovieType): ActionCurrentMovie {
   return { type: currentMovieAction, payload };
 }
 
-type ActionSearchInputValue = {
-  type: string;
-  payload: string;
-};
-
-export function setSearchInputValue(payload: string): ActionSearchInputValue {
-  return { type: searchInputValueAction, payload };
-}
+export const updateFormState = (form: any, state: any) => ({
+  type: updateFormStateAction,
+  form,
+  payload: state,
+});
 
 type ActionMoviesSuccess = {
   type: string;
