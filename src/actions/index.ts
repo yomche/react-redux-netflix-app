@@ -5,9 +5,10 @@ import {
   fetchSuccessAction,
   fetchSortByDateAction,
   fetchSortByRatingAction,
+  toggleSortByAction,
 } from './action-names';
 import { moviesUrl, moviesUrlSortByDate, moviesUrlSortByRating } from '../constants/app.constants';
-import { CurrentMovieType, MoviesDataType } from '../types';
+import { CurrentMovieType, MoviesDataType, FormStateType } from '../types';
 
 type ActionViewType = {
   type: string;
@@ -27,10 +28,24 @@ export function setCurrentMovie(payload: CurrentMovieType): ActionCurrentMovie {
   return { type: currentMovieAction, payload };
 }
 
-export const updateFormState = (form: any, state: any) => ({
+type ActionFormState = {
+  type: string;
+  payload: FormStateType;
+};
+
+export const updateFormState = (payload: FormStateType): ActionFormState => ({
   type: updateFormStateAction,
-  form,
-  payload: state,
+  payload,
+});
+
+type ActionSetSearchBy = {
+  type: string;
+  payload: string;
+};
+
+export const setSearchBy = (payload: string): ActionSetSearchBy => ({
+  type: toggleSortByAction,
+  payload,
 });
 
 type ActionMoviesSuccess = {
