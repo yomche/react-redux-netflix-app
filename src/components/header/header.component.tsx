@@ -7,21 +7,31 @@ import { TypeOfView } from '../../constants/app.constants';
 import { CurrentMovieType } from '../../types';
 
 type HeaderProps = {
+  updateForm: (value: string) => () => void;
   viewType: string;
   onSetMovieListType: () => void;
+  onSetToggleSearchByGenre: () => void;
+  onSetToggleSearchByTitle: () => void;
   currentMovie: CurrentMovieType;
 };
 
 export const Header: FC<HeaderProps> = ({
   viewType,
   currentMovie,
+  updateForm,
   onSetMovieListType,
+  onSetToggleSearchByGenre,
+  onSetToggleSearchByTitle,
 }) => (
   <StyledHeader>
     <NavPanel onClickToChange={onSetMovieListType} />
     {viewType === TypeOfView.movieList ? (
       <>
-        <SearchInput />
+        <SearchInput
+          updateForm={updateForm}
+          onClickToSearchGenre={onSetToggleSearchByGenre}
+          onClickToSearchTitle={onSetToggleSearchByTitle}
+        />
       </>
     ) : (
       <MovieFullInfo currentMovieFullInfo={currentMovie} />
