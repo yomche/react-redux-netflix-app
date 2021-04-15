@@ -11,7 +11,6 @@ import { ErrorBoundaryMoviesList } from './error-boundary';
 import {
   setViewType,
   setCurrentMovie,
-  setSearchInputValue,
   fetchMovies,
   fetchMoviesByDate,
   fetchMoviesByRating,
@@ -19,15 +18,12 @@ import {
 import { RootState } from '../store';
 
 export const App: FC = () => {
-  const { viewType, currentMovie, moviesData, moviesAmount, searchInputValue } = useSelector(
-    (state: RootState) => ({
-      viewType: state.viewTypeData,
-      currentMovie: state.currentMovieData,
-      moviesData: state.moviesData.data,
-      moviesAmount: state.moviesData.data.length,
-      searchInputValue: state.searchInputValueData,
-    })
-  );
+  const { viewType, currentMovie, moviesData, moviesAmount } = useSelector((state: RootState) => ({
+    viewType: state.viewTypeData,
+    currentMovie: state.currentMovieData,
+    moviesData: state.moviesData.data,
+    moviesAmount: state.moviesData.data.length,
+  }));
   const dispatch = useDispatch();
   const setMovieFullInfoType = useCallback(
     (chosenMovie) => () => {
@@ -39,10 +35,6 @@ export const App: FC = () => {
   const setMovieListType = useCallback(() => dispatch(setViewType(TypeOfView.movieList)), []);
   const setMovieSortByDate = useCallback(() => dispatch(fetchMoviesByDate()), []);
   const setMovieSortByRating = useCallback(() => dispatch(fetchMoviesByRating()), []);
-  const setSearchInputChange = useCallback(
-    () => dispatch(setSearchInputValue(searchInputValue)),
-    []
-  );
 
   useEffect(() => {
     dispatch(fetchMovies());
@@ -55,8 +47,6 @@ export const App: FC = () => {
         viewType={viewType}
         currentMovie={currentMovie}
         onSetMovieListType={setMovieListType}
-        onSetSearchInputChange={setSearchInputChange}
-        searchInputValue={searchInputValue}
       />
       <MoviesSorter
         moviesAmount={moviesAmount}
