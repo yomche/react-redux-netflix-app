@@ -2,6 +2,7 @@ import {
   fetchSuccessAction,
   fetchSortByDateAction,
   fetchSortByRatingAction,
+  searchMovieByParametersAction,
 } from '../actions/action-names';
 import { DataType } from '../types';
 
@@ -19,6 +20,8 @@ export const moviesData = (
     case fetchSortByDateAction:
       return action.payload;
     case fetchSortByRatingAction:
+      return action.payload;
+    case searchMovieByParametersAction:
       return action.payload;
     default:
       return state;
