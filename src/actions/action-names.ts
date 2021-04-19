@@ -1,7 +1,7 @@
 export const viewTypeAction = 'VIEW_TYPE';
 export const currentMovieAction = 'CURRENT_MOVIE';
-export const updateFormStateAction = 'UPDATE_FORM_STATE';
+export const updateSearchInputValueAction = 'UPDATE_SEARCH_INPUT_VALUE';
 export const fetchSuccessAction = 'FETCH_MOVIES_SUCCESS';
-export const fetchSortByDateAction = 'FETCH_SORT_BY_DATE';
-export const fetchSortByRatingAction = 'FETCH_SORT_BY_RATING';
-export const toggleSortByAction = 'TOGGLE_SORT_BY';
+export const fetchSortByDateAction = 'SORT_MOVIES_BY_DATE';
+export const fetchSortByRatingAction = 'SORT_MOVIES_BY_RATING';
+export const searchMovieByParametersAction = 'SEARCH_MOVIE_BY_PARAMETERS';
