@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Form, Field } from 'react-final-form';
+import { Form, Field, FormSpy } from 'react-final-form';
+import { setInputValue } from '../../actions/index';
 import {
   StyledSearchForm,
   StyledHeading,
@@ -10,35 +11,26 @@ import {
 } from './search-input.styles';
 
 type SearchInputProps = {
-  onClickToSearchGenre: () => void;
-  onClickToSearchTitle: () => void;
-  updateForm: (value: string) => void;
+  updateSearchInputValue: (value: string) => void;
 };
 
-export const SearchInput: FC<SearchInputProps> = ({
-  onClickToSearchGenre,
-  onClickToSearchTitle,
-  updateForm,
-}) => (
+export const SearchInput: FC<SearchInputProps> = ({ updateSearchInputValue }) => (
   <Form
     onSubmit={(value: string) => {
-      // eslint-disable-next-line no-console
-      console.log(value);
-      updateForm(value);
+      updateSearchInputValue(value);
     }}
   >
     {({ handleSubmit }) => (
       <StyledSearchForm onSubmit={handleSubmit}>
+        <FormSpy onChange={(inputValue) => setInputValue(inputValue)} />
         <StyledHeading>FIND YOUR MOVIE</StyledHeading>
-        <Field name="movieName" component="input" type="text" placeholder="Quentin Tarantino" />
+        <Field name="inputValue" component="input" type="text" placeholder="Quentin Tarantino" />
         <StyledControlsSection>
-          <StyledTitleButton type="button" onClick={onClickToSearchTitle}>
-            {' '}
-            TITLE{' '}
+          <StyledTitleButton>
+            <Field name="searchType" component="input" type="radio" value="title" /> TITLE
           </StyledTitleButton>
-          <StyledGenreButton type="button" onClick={onClickToSearchGenre}>
-            {' '}
-            GENRE{' '}
+          <StyledGenreButton>
+            <Field name="searchType" component="input" type="radio" value="genre" /> GENRE
           </StyledGenreButton>
           <StyledSubmitButton type="submit"> SUBMIT </StyledSubmitButton>
         </StyledControlsSection>

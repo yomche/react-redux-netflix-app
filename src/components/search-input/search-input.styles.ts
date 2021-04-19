@@ -42,31 +42,41 @@ export const StyledControlsSection = styled.section`
   align-items: center;
 `;
 
-export const StyledTitleButton = styled.button`
+export const StyledTitleButton = styled.label`
   width: 100px;
-  height: 30px;
+  height: 25px;
   color: ${FONT_COLOR};
   background-color: ${BUTTON_BACKGROUND_COLOR};
   margin-right: 15px;
   border-radius: 5px;
+  text-align: center;
 
   :hover {
     cursor: pointer;
     background-color: ${BUTTON_COLOR};
   }
+
+  & > input[type='radio'] {
+    display: none;
+  }
 `;
 
-export const StyledGenreButton = styled.button`
+export const StyledGenreButton = styled.label`
   width: 100px;
-  height: 30px;
+  height: 25px;
   color: ${FONT_COLOR};
   background-color: ${BUTTON_BACKGROUND_COLOR};
   border-radius: 5px;
   margin-right: 650px;
+  text-align: center;
 
   :hover {
     cursor: pointer;
     background-color: ${BUTTON_COLOR};
+  }
+
+  & > input[type='radio'] {
+    display: none;
   }
 `;
 
