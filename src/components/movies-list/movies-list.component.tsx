@@ -10,6 +10,7 @@ type MoviesListProps = {
     title: string;
     releaseDate: string;
     overview: string;
+    genre: string;
   }) => React.MouseEventHandler<HTMLLIElement>;
 };
 

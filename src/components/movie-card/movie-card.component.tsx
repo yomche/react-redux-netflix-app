@@ -20,6 +20,7 @@ type MovieCardProps = {
     title: string;
     releaseDate: string;
     overview: string;
+    genre: string;
   }) => React.MouseEventHandler<HTMLLIElement>;
 };
 
@@ -31,7 +32,7 @@ export const MovieCard: FC<MovieCardProps> = ({
   overview,
   onClickToChange,
 }) => (
-  <StyledMovieCard onClick={onClickToChange({ posterPath, title, releaseDate, overview })}>
+  <StyledMovieCard onClick={onClickToChange({ posterPath, title, releaseDate, overview, genre })}>
     <MovieCardPoster src={posterPath} />
     <StyledMovieCardTitle> {title} </StyledMovieCardTitle>
     <StyledMovieCardInfo>
