@@ -1,14 +1,14 @@
-import { updateFormStateAction } from '../actions/action-names';
+import { updateSearchInputValueAction } from '../actions/action-names';
 import { FormStateType } from '../types';
 
-const initialState = { inputValue: '' };
+const initialState = { inputValue: '', searchType: 'title' };
 
-export function formStateData(
+export function searchInputValueData(
   state = initialState,
   action: { type: string; payload: FormStateType }
 ): FormStateType {
   switch (action.type) {
-    case updateFormStateAction:
+    case updateSearchInputValueAction:
       return action.payload;
     default:
       return state;
