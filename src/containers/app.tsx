@@ -15,7 +15,8 @@ import {
   fetchMoviesByDate,
   fetchMoviesByRating,
   setInputValue,
-  searchMovieByParameters,
+  sethMovieByGenre,
+  searchMovieByInputValue,
 } from '../actions';
 import { RootState } from '../store';
 
@@ -27,18 +28,29 @@ export const App: FC = () => {
     moviesAmount: state.moviesData.data.length,
   }));
   const dispatch = useDispatch();
+  const setMovieListType = useCallback(() => {
+    dispatch(setViewType(TypeOfView.movieList));
+    dispatch(fetchMovies());
+  }, []);
   const setMovieFullInfoType = useCallback(
     (chosenMovie) => () => {
       dispatch(setViewType(TypeOfView.movieFullInfo));
       dispatch(setCurrentMovie(chosenMovie));
-      dispatch(searchMovieByParameters(chosenMovie.genre));
+      dispatch(sethMovieByGenre(chosenMovie.genre));
     },
     []
   );
-  const setMovieListType = useCallback(() => dispatch(setViewType(TypeOfView.movieList)), []);
   const setMovieSortByDate = useCallback(() => dispatch(fetchMoviesByDate()), []);
   const setMovieSortByRating = useCallback(() => dispatch(fetchMoviesByRating()), []);
-  const setSearchInputValue = useCallback((value) => dispatch(setInputValue(value)), []);
+  const setSearchInputValue = useCallback((value) => {
+    dispatch(setInputValue(value));
+    dispatch(
+      searchMovieByInputValue(
+        setInputValue(value).payload.inputValue,
+        setInputValue(value).payload.searchType
+      )
+    );
+  }, []);
 
   useEffect(() => {
     dispatch(fetchMovies());
