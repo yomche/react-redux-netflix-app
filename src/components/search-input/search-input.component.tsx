@@ -30,7 +30,7 @@ export const SearchInput: FC<SearchInputProps> = ({ updateSearchInputValue }) =>
             <Field name="searchType" component="input" type="radio" value="title" /> TITLE
           </StyledTitleButton>
           <StyledGenreButton>
-            <Field name="searchType" component="input" type="radio" value="genre" /> GENRE
+            <Field name="searchType" component="input" type="radio" value="genres" /> GENRE
           </StyledGenreButton>
           <StyledSubmitButton type="submit"> SUBMIT </StyledSubmitButton>
         </StyledControlsSection>
