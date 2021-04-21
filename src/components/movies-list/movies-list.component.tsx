@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { StyledMoviesList, StyledContainer } from './movies-list.styles';
+import { StyledMoviesList, StyledContainer, StyledMoviesNotFound } from './movies-list.styles';
 import { MovieCard } from '../movie-card/movie-card.component';
 import { MoviesDataType } from '../../types';
 
@@ -29,6 +29,9 @@ export const MoviesList: FC<MoviesListProps> = ({ onSetMovieFullInfoType, movies
             key={id}
           />
         ))}
+      {moviesData.length === 0 && (
+        <StyledMoviesNotFound>Sorry, no movies were found</StyledMoviesNotFound>
+      )}
     </StyledMoviesList>
   </StyledContainer>
 );

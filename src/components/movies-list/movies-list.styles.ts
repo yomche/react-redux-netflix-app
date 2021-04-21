@@ -17,3 +17,10 @@ export const StyledMoviesList = styled.ul`
   row-gap: 60px;
   column-gap: 100px;
 `;
+
+export const StyledMoviesNotFound = styled.h1`
+  width: 1200px;
+  margin: auto;
+  color: red;
+  text-align: center;
+`;
