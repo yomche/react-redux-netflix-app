@@ -21,4 +21,5 @@ export type CurrentMovieType = {
 
 export type FormStateType = {
   inputValue: string;
+  searchType: string;
 };
