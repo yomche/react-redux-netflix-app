@@ -10,22 +10,20 @@ import {
 
 type MoviesSorterProps = {
   moviesAmount: number;
-  onSetMovieSortByDate: () => void;
-  onSetMovieSortByRating: () => void;
+  onSetSortType: (sortType: string) => void;
 };
 
-export const MoviesSorter: FC<MoviesSorterProps> = ({
-  moviesAmount,
-  onSetMovieSortByDate,
-  onSetMovieSortByRating,
-}) => (
+export const MoviesSorter: FC<MoviesSorterProps> = ({ moviesAmount, onSetSortType }) => (
   <StyledSorter>
     <StyledSorterInfo>
       <StyledSorterFoundData>{moviesAmount} movies found</StyledSorterFoundData>
       <StyledSorterResult>
         <StyledSorterDataHeading>Sort by </StyledSorterDataHeading>
-        <StyledSorterData onClick={onSetMovieSortByDate}> release date </StyledSorterData>
-        <StyledSorterData onClick={onSetMovieSortByRating}>rating</StyledSorterData>
+        <StyledSorterData onClick={() => onSetSortType('release_date')}>
+          {' '}
+          release date{' '}
+        </StyledSorterData>
+        <StyledSorterData onClick={() => onSetSortType('vote_count')}>rating</StyledSorterData>
       </StyledSorterResult>
     </StyledSorterInfo>
   </StyledSorter>

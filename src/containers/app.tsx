@@ -12,40 +12,44 @@ import {
   setViewType,
   setCurrentMovie,
   fetchMovies,
-  fetchMoviesByDate,
-  fetchMoviesByRating,
   setInputValue,
   sethMovieByGenre,
   searchMovieByInputValue,
+  setToggleBySortType,
 } from '../actions';
 import { RootState } from '../store';
 
 export const App: FC = () => {
-  const { viewType, currentMovie, moviesData, moviesAmount } = useSelector((state: RootState) => ({
-    viewType: state.viewTypeData,
-    currentMovie: state.currentMovieData,
-    moviesData: state.moviesData.data,
-    moviesAmount: state.moviesData.data.length,
-  }));
+  const { viewType, currentMovie, moviesData, moviesAmount, movieSortType } = useSelector(
+    (state: RootState) => ({
+      viewType: state.viewTypeData,
+      currentMovie: state.currentMovieData,
+      moviesData: state.moviesData.data,
+      moviesAmount: state.moviesData.data.length,
+      movieSortType: state.toggleSortTypeData,
+    })
+  );
   const dispatch = useDispatch();
   const setMovieListType = useCallback(() => {
     dispatch(setViewType(TypeOfView.movieList));
     dispatch(fetchMovies());
   }, []);
+  const setSortType = useCallback((sortTypeValue) => {
+    dispatch(setToggleBySortType(sortTypeValue));
+  }, []);
   const setMovieFullInfoType = useCallback(
     (chosenMovie) => () => {
       dispatch(setViewType(TypeOfView.movieFullInfo));
       dispatch(setCurrentMovie(chosenMovie));
-      dispatch(sethMovieByGenre(chosenMovie.genre));
+      dispatch(sethMovieByGenre(movieSortType, chosenMovie.genre));
     },
     []
   );
-  const setMovieSortByDate = useCallback(() => dispatch(fetchMoviesByDate()), []);
-  const setMovieSortByRating = useCallback(() => dispatch(fetchMoviesByRating()), []);
   const setSearchInputValue = useCallback((value) => {
     dispatch(setInputValue(value));
     dispatch(
       searchMovieByInputValue(
+        movieSortType,
         setInputValue(value).payload.inputValue,
         setInputValue(value).payload.searchType
       )
@@ -65,11 +69,7 @@ export const App: FC = () => {
         currentMovie={currentMovie}
         onSetMovieListType={setMovieListType}
       />
-      <MoviesSorter
-        moviesAmount={moviesAmount}
-        onSetMovieSortByDate={setMovieSortByDate}
-        onSetMovieSortByRating={setMovieSortByRating}
-      />
+      <MoviesSorter moviesAmount={moviesAmount} onSetSortType={setSortType} />
       <ErrorBoundaryMoviesList>
         <MoviesList onSetMovieFullInfoType={setMovieFullInfoType} moviesData={moviesData} />
       </ErrorBoundaryMoviesList>
