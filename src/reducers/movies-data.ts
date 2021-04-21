@@ -1,9 +1,4 @@
-import {
-  fetchSuccessAction,
-  fetchSortByDateAction,
-  fetchSortByRatingAction,
-  searchMovieByParametersAction,
-} from '../actions/action-names';
+import { fetchSuccessAction, searchMovieByParametersAction } from '../actions/action-names';
 import { DataType } from '../types';
 
 const initialState: DataType = {
@@ -16,10 +11,6 @@ export const moviesData = (
 ): DataType => {
   switch (action.type) {
     case fetchSuccessAction:
-      return action.payload;
-    case fetchSortByDateAction:
-      return action.payload;
-    case fetchSortByRatingAction:
       return action.payload;
     case searchMovieByParametersAction:
       return action.payload;
