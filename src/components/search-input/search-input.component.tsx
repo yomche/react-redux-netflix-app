@@ -19,6 +19,7 @@ export const SearchInput: FC<SearchInputProps> = ({ updateSearchInputValue }) =>
     onSubmit={(value: string) => {
       updateSearchInputValue(value);
     }}
+    initialValues={{ searchType: 'title' }}
   >
     {({ handleSubmit }) => (
       <StyledSearchForm onSubmit={handleSubmit}>
