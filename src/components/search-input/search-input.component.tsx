@@ -20,8 +20,9 @@ export const SearchInput: FC<SearchInputProps> = ({ updateSearchInputValue }) =>
       updateSearchInputValue(value);
     }}
     initialValues={{ searchType: 'title' }}
+    subscription={{ submitting: true, pristine: true }}
   >
-    {({ handleSubmit }) => (
+    {({ handleSubmit, submitting, pristine }) => (
       <StyledSearchForm onSubmit={handleSubmit}>
         <FormSpy onChange={(inputValue) => setInputValue(inputValue)} />
         <StyledHeading>FIND YOUR MOVIE</StyledHeading>
@@ -33,7 +34,10 @@ export const SearchInput: FC<SearchInputProps> = ({ updateSearchInputValue }) =>
           <StyledGenreButton>
             <Field name="searchType" component="input" type="radio" value="genres" /> GENRE
           </StyledGenreButton>
-          <StyledSubmitButton type="submit"> SUBMIT </StyledSubmitButton>
+          <StyledSubmitButton type="submit" disabled={submitting || pristine}>
+            {' '}
+            SUBMIT{' '}
+          </StyledSubmitButton>
         </StyledControlsSection>
       </StyledSearchForm>
     )}
