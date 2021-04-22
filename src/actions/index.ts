@@ -3,7 +3,6 @@ import {
   currentMovieAction,
   updateSearchInputValueAction,
   fetchSuccessAction,
-  searchMovieByParametersAction,
   toggleBySortTypeAction,
 } from './action-names';
 import { moviesUrl } from '../constants/app.constants';
@@ -64,22 +63,29 @@ export const setToggleBySortType = (SortType: string): ActionToggleBySortType =>
   payload: SortType,
 });
 
-export function setMoviesByParameters(moviesList: MoviesDataType): ActionMoviesSuccess {
-  return { type: searchMovieByParametersAction, payload: moviesList };
-}
+export const fetchMoviesBySortType = (sortType: string) => (
+  dispatch: (actionCreator: ActionMoviesSuccess) => void
+): void => {
+  const searchURL = `http://react-cdp-api.herokuapp.com/movies?sortBy=${sortType}&sortOrder=desc`;
+  fetch(searchURL)
+    .then((response) => response.json())
+    .then((moviesData) => {
+      dispatch(setMoviesSuccess(moviesData));
+    });
+};
 
-export const sethMovieByGenre = (sortType: string, movieGenre: string) => (
+export const fetchMoviesByGenre = (sortType: string, movieGenre: string) => (
   dispatch: (actionCreator: ActionMoviesSuccess) => void
 ): void => {
   const searchURL = `http://react-cdp-api.herokuapp.com/movies?sortBy=${sortType}&sortOrder=desc&search=${movieGenre}&searchBy=genres`;
   fetch(searchURL)
     .then((response) => response.json())
     .then((moviesData) => {
-      dispatch(setMoviesByParameters(moviesData));
+      dispatch(setMoviesSuccess(moviesData));
     });
 };
 
-export const searchMovieByInputValue = (
+export const fetchMoviesByInputValue = (
   sortType: string,
   inputValue: string,
   searchType: string
@@ -88,6 +94,6 @@ export const searchMovieByInputValue = (
   fetch(searchURL)
     .then((response) => response.json())
     .then((moviesData) => {
-      dispatch(setMoviesByParameters(moviesData));
+      dispatch(setMoviesSuccess(moviesData));
     });
 };
