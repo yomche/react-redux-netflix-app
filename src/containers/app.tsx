@@ -13,9 +13,10 @@ import {
   setCurrentMovie,
   fetchMovies,
   setInputValue,
-  sethMovieByGenre,
-  searchMovieByInputValue,
+  fetchMoviesByGenre,
+  fetchMoviesByInputValue,
   setToggleBySortType,
+  fetchMoviesBySortType,
 } from '../actions';
 import { RootState } from '../store';
 
@@ -34,21 +35,24 @@ export const App: FC = () => {
     dispatch(setViewType(TypeOfView.movieList));
     dispatch(fetchMovies());
   }, []);
+
   const setSortType = useCallback((sortTypeValue) => {
     dispatch(setToggleBySortType(sortTypeValue));
+    dispatch(fetchMoviesBySortType(sortTypeValue));
   }, []);
+
   const setMovieFullInfoType = useCallback(
     (chosenMovie) => () => {
       dispatch(setViewType(TypeOfView.movieFullInfo));
       dispatch(setCurrentMovie(chosenMovie));
-      dispatch(sethMovieByGenre(movieSortType, chosenMovie.genre));
+      dispatch(fetchMoviesByGenre(movieSortType, chosenMovie.genre));
     },
     []
   );
   const setSearchInputValue = useCallback((value) => {
     dispatch(setInputValue(value));
     dispatch(
-      searchMovieByInputValue(
+      fetchMoviesByInputValue(
         movieSortType,
         setInputValue(value).payload.inputValue,
         setInputValue(value).payload.searchType
