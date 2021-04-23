@@ -54,7 +54,7 @@ export const StyledTitleButton = styled.label`
   width: 100px;
   height: 25px;
   color: ${FONT_COLOR};
-  background-color: ${BUTTON_BACKGROUND_COLOR};
+  background-color: ${(props) => props.color};
   margin-right: 15px;
   border-radius: 5px;
   text-align: center;
@@ -73,7 +73,7 @@ export const StyledGenreButton = styled.label`
   width: 100px;
   height: 25px;
   color: ${FONT_COLOR};
-  background-color: ${BUTTON_BACKGROUND_COLOR};
+  background-color: ${(props) => props.color};
   border-radius: 5px;
   margin-right: 650px;
   text-align: center;
