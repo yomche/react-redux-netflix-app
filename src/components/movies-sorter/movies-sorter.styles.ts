@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const BACKGROUND_COLOR = '#808080';
-const FONT_COLOR = '#ffffff';
 
 export const StyledSorter = styled.section`
   width: 1200px;
@@ -32,12 +31,15 @@ export const StyledSorterDataHeading = styled.li`
   list-style: none;
 `;
 
+interface liProps {
+  isActive: boolean;
+}
+
 export const StyledSorterData = styled.li`
   list-style: none;
-  color: ${(props) => props.color};
+  color: ${(props: liProps) => (props.isActive ? '#fff' : '#000')};
 
   :hover {
     cursor: pointer;
-    color: ${FONT_COLOR};
   }
 `;

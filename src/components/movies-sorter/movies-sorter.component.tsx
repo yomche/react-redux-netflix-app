@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import {
   StyledSorter,
   StyledSorterFoundData,
@@ -11,34 +11,32 @@ import {
 type MoviesSorterProps = {
   moviesAmount: number;
   onSetSortType: (sortType: string) => void;
+  movieSortType: string;
 };
 
-export const MoviesSorter: FC<MoviesSorterProps> = ({ moviesAmount, onSetSortType }) => {
-  const [active, setActive] = useState(false);
-  const handleClick = () => {
-    setActive(!active);
-  };
-  return (
+export const MoviesSorter: FC<MoviesSorterProps> = ({
+  moviesAmount,
+  onSetSortType,
+  movieSortType,
+}) => (
     <StyledSorter>
       <StyledSorterInfo>
         <StyledSorterFoundData>{moviesAmount} movies found</StyledSorterFoundData>
         <StyledSorterResult>
           <StyledSorterDataHeading>Sort by </StyledSorterDataHeading>
           <StyledSorterData
-            color={active ? '#000' : '#ffffff'}
+            isActive={movieSortType === 'release_date'}
             onClick={() => {
               onSetSortType('release_date');
-              handleClick();
             }}
           >
             {' '}
             release date{' '}
           </StyledSorterData>
           <StyledSorterData
-            color={active ? '#ffffff' : '#000'}
+            isActive={movieSortType === 'vote_count'}
             onClick={() => {
               onSetSortType('vote_count');
-              handleClick();
             }}
           >
             rating
@@ -47,4 +45,3 @@ export const MoviesSorter: FC<MoviesSorterProps> = ({ moviesAmount, onSetSortTyp
       </StyledSorterInfo>
     </StyledSorter>
   );
-};

@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { Form, Field, FormSpy } from 'react-final-form';
 import { setInputValue } from '../../actions/index';
 import {
@@ -14,6 +14,8 @@ import {
 
 type SearchInputProps = {
   updateSearchInputValue: (value: string) => void;
+  toggleMovieSearchType: (value: string) => void;
+  movieSearchType: string;
 };
 
 const required = (value: string) => (value ? undefined : 'REQUIRED FIELD');
@@ -26,12 +28,11 @@ const composeValidators = (
 ) => (value: string) =>
   validators.reduce((error, validator) => error || validator(value), undefined);
 
-export const SearchInput: FC<SearchInputProps> = ({ updateSearchInputValue }) => {
-  const [active, setActive] = useState(false);
-  const handleClick = () => {
-    setActive(!active);
-  };
-  return (
+export const SearchInput: FC<SearchInputProps> = ({
+  updateSearchInputValue,
+  toggleMovieSearchType,
+  movieSearchType,
+}) => (
     <Form
       onSubmit={(value: string) => {
         updateSearchInputValue(value);
@@ -55,23 +56,23 @@ export const SearchInput: FC<SearchInputProps> = ({ updateSearchInputValue }) =>
             )}
           </Field>
           <StyledControlsSection>
-            <StyledTitleButton color={active ? '#ff0000' : '#a9a9a9'}>
+            <StyledTitleButton isActive={movieSearchType === 'title'}>
               <Field
                 name="searchType"
                 component="input"
                 type="radio"
                 value="title"
-                onClick={handleClick}
+                onClick={() => toggleMovieSearchType('title')}
               />{' '}
               TITLE
             </StyledTitleButton>
-            <StyledGenreButton color={active ? '#a9a9a9' : '#ff0000'}>
+            <StyledGenreButton isActive={movieSearchType === 'genre'}>
               <Field
                 name="searchType"
                 component="input"
                 type="radio"
                 value="genres"
-                onClick={handleClick}
+                onClick={() => toggleMovieSearchType('genre')}
               />{' '}
               GENRE
             </StyledGenreButton>
@@ -84,4 +85,3 @@ export const SearchInput: FC<SearchInputProps> = ({ updateSearchInputValue }) =>
       )}
     </Form>
   );
-};

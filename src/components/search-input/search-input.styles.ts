@@ -50,18 +50,23 @@ export const StyledControlsSection = styled.section`
   align-items: center;
 `;
 
+interface labelProps {
+  isActive: boolean;
+}
+
 export const StyledTitleButton = styled.label`
   width: 100px;
   height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: ${FONT_COLOR};
-  background-color: ${(props) => props.color};
+  background-color: ${(props: labelProps) => (props.isActive ? '#a9a9a9' : '#ff0000')};
   margin-right: 15px;
   border-radius: 5px;
-  text-align: center;
 
   :hover {
     cursor: pointer;
-    background-color: ${BUTTON_COLOR};
   }
 
   & > input[type='radio'] {
@@ -72,15 +77,16 @@ export const StyledTitleButton = styled.label`
 export const StyledGenreButton = styled.label`
   width: 100px;
   height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: ${FONT_COLOR};
-  background-color: ${(props) => props.color};
+  background-color: ${(props: labelProps) => (props.isActive ? '#a9a9a9' : '#ff0000')};
   border-radius: 5px;
   margin-right: 650px;
-  text-align: center;
 
   :hover {
     cursor: pointer;
-    background-color: ${BUTTON_COLOR};
   }
 
   & > input[type='radio'] {
