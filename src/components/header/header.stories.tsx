@@ -23,12 +23,18 @@ storiesOf('Knobs/Header', module)
     };
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     function setMovieListType() {}
+    function setSearchInputValue() {}
+    function setMovieSearchType() {}
+    const movieSearchType = 'test value';
 
     return (
       <Header
         viewType={viewTypeSelect}
         currentMovie={currentMovie}
         onSetMovieListType={setMovieListType}
+        onSetSearchInputValue={setSearchInputValue}
+        movieSearchType={movieSearchType}
+        onSetMovieSearchType={setMovieSearchType}
       />
     );
   });

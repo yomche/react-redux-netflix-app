@@ -9,7 +9,19 @@ export default {
   component: MoviesSorter,
 };
 
-const Template: Story<ComponentProps<typeof MoviesSorter>> = () => <MoviesSorter />;
+const Template: Story<ComponentProps<typeof MoviesSorter>> = () => {
+  const moviesAmount = 10;
+  const movieSortType = 'testValue';
+  function setSortType() {}
+
+  return (
+    <MoviesSorter
+      moviesAmount={moviesAmount}
+      onSetSortType={setSortType}
+      movieSortType={movieSortType}
+    />
+  );
+};
 
 export const Primary = Template.bind({});
 Primary.args = {};
