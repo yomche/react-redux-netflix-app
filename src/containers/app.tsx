@@ -1,64 +1,16 @@
-import React, { FC, useCallback, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { FC, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { TypeOfView } from '../constants/app.constants';
 import { GlobalStyle } from '../../styles/global-styles';
-import { Header } from '../components/header/header.component';
-import { MoviesList } from '../components/movies-list/movies-list.component';
-import { Footer } from '../components/footer/footer.component';
-import { MoviesSorter } from '../components/movies-sorter/movies-sorter.component';
 import { ErrorBoundaryMoviesList } from './error-boundary';
-import {
-  setViewType,
-  setCurrentMovie,
-  fetchMovies,
-  setInputValue,
-  fetchMoviesByGenre,
-  fetchMoviesByInputValue,
-  setToggleBySortType,
-  fetchMoviesBySortType,
-} from '../actions';
-import { RootState } from '../store';
+import { MoviesSorterContainer } from './movies-sorter.container';
+import { HeaderContainer } from './header.container';
+import { MoviesListContainer } from './movies-list.container';
+import { Footer } from '../components/footer/footer.component';
+import { fetchMovies } from '../actions';
 
 export const App: FC = () => {
-  const { viewType, currentMovie, moviesData, moviesAmount, movieSortType } = useSelector(
-    (state: RootState) => ({
-      viewType: state.viewTypeData,
-      currentMovie: state.currentMovieData,
-      moviesData: state.moviesData.data,
-      moviesAmount: state.moviesData.data.length,
-      movieSortType: state.toggleSortTypeData,
-    })
-  );
   const dispatch = useDispatch();
-  const setMovieListType = useCallback(() => {
-    dispatch(setViewType(TypeOfView.movieList));
-    dispatch(fetchMovies());
-  }, []);
-
-  const setSortType = useCallback((sortTypeValue) => {
-    dispatch(setToggleBySortType(sortTypeValue));
-    dispatch(fetchMoviesBySortType(sortTypeValue));
-  }, []);
-
-  const setMovieFullInfoType = useCallback(
-    (chosenMovie) => () => {
-      dispatch(setViewType(TypeOfView.movieFullInfo));
-      dispatch(setCurrentMovie(chosenMovie));
-      dispatch(fetchMoviesByGenre(movieSortType, chosenMovie.genre));
-    },
-    []
-  );
-  const setSearchInputValue = useCallback((value) => {
-    dispatch(setInputValue(value));
-    dispatch(
-      fetchMoviesByInputValue(
-        movieSortType,
-        setInputValue(value).payload.inputValue,
-        setInputValue(value).payload.searchType
-      )
-    );
-  }, []);
 
   useEffect(() => {
     dispatch(fetchMovies());
@@ -67,15 +19,10 @@ export const App: FC = () => {
   return (
     <>
       <GlobalStyle />
-      <Header
-        viewType={viewType}
-        onSetSearchInputValue={setSearchInputValue}
-        currentMovie={currentMovie}
-        onSetMovieListType={setMovieListType}
-      />
-      <MoviesSorter moviesAmount={moviesAmount} onSetSortType={setSortType} />
+      <HeaderContainer />
+      <MoviesSorterContainer />
       <ErrorBoundaryMoviesList>
-        <MoviesList onSetMovieFullInfoType={setMovieFullInfoType} moviesData={moviesData} />
+        <MoviesListContainer />
       </ErrorBoundaryMoviesList>
       <Footer />
     </>
