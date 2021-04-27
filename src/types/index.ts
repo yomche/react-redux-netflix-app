@@ -1,5 +1,5 @@
 export type DataType = {
-  data: [MoviesDataType];
+  data: [];
 };
 
 export type MoviesDataType = {
