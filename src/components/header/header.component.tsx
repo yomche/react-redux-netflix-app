@@ -11,6 +11,8 @@ type HeaderProps = {
   viewType: string;
   onSetMovieListType: () => void;
   currentMovie: CurrentMovieType;
+  onSetMovieSearchType: (value: string) => void;
+  movieSearchType: string;
 };
 
 export const Header: FC<HeaderProps> = ({
@@ -18,12 +20,18 @@ export const Header: FC<HeaderProps> = ({
   currentMovie,
   onSetSearchInputValue,
   onSetMovieListType,
+  onSetMovieSearchType,
+  movieSearchType,
 }) => (
   <StyledHeader>
     <NavPanel onClickToChange={onSetMovieListType} />
     {viewType === TypeOfView.movieList ? (
       <>
-        <SearchInput updateSearchInputValue={onSetSearchInputValue} />
+        <SearchInput
+          updateSearchInputValue={onSetSearchInputValue}
+          toggleMovieSearchType={onSetMovieSearchType}
+          movieSearchType={movieSearchType}
+        />
       </>
     ) : (
       <MovieFullInfo currentMovieFullInfo={currentMovie} />
