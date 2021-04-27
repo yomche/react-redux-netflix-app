@@ -1,12 +1,15 @@
+import { ThunkDispatch } from 'redux-thunk';
+import { RootState } from "../store";
 import {
   viewTypeAction,
   currentMovieAction,
   updateSearchInputValueAction,
   fetchSuccessAction,
   toggleBySortTypeAction,
+  toggleBySearchTypeAction,
 } from './action-names';
 import { moviesUrl } from '../constants/app.constants';
-import { CurrentMovieType, MoviesDataType, FormStateType } from '../types';
+import { CurrentMovieType, MoviesDataType } from '../types';
 
 type ActionViewType = {
   type: string;
@@ -28,10 +31,10 @@ export function setCurrentMovie(currentMovie: CurrentMovieType): ActionCurrentMo
 
 type ActionInputValue = {
   type: string;
-  payload: FormStateType;
+  payload: Record<string, any>;
 };
 
-export const setInputValue = (searchInputValue: FormStateType): ActionInputValue => ({
+export const setInputValue = (searchInputValue: Record<string, any>): ActionInputValue => ({
   type: updateSearchInputValueAction,
   payload: searchInputValue,
 });
@@ -45,11 +48,16 @@ export function setMoviesSuccess(moviesList: MoviesDataType): ActionMoviesSucces
   return { type: fetchSuccessAction, payload: moviesList };
 }
 
-export const fetchMovies = () => (dispatch: (actionCreator: ActionMoviesSuccess) => void): void => {
+export const fetchMovies = () => (
+  dispatch: ThunkDispatch<RootState, void, ActionMoviesSuccess>
+): void => {
   fetch(moviesUrl)
     .then((response) => response.json())
     .then((moviesData) => {
       dispatch(setMoviesSuccess(moviesData));
+    })
+    .catch((e) => {
+      throw new Error(e.message);
     });
 };
 
@@ -63,25 +71,37 @@ export const setToggleBySortType = (SortType: string): ActionToggleBySortType =>
   payload: SortType,
 });
 
+export const setToggleBySearchType = (SearchType: string): ActionToggleBySortType => ({
+  type: toggleBySearchTypeAction,
+  payload: SearchType,
+});
+
 export const fetchMoviesBySortType = (sortType: string) => (
-  dispatch: (actionCreator: ActionMoviesSuccess) => void
+  dispatch: ThunkDispatch<RootState, void, ActionMoviesSuccess>
 ): void => {
-  const searchURL = `http://react-cdp-api.herokuapp.com/movies?sortBy=${sortType}&sortOrder=desc`;
+  const searchURL = `${moviesUrl  }?sortBy=${sortType}&sortOrder=desc`;
   fetch(searchURL)
     .then((response) => response.json())
     .then((moviesData) => {
       dispatch(setMoviesSuccess(moviesData));
+    })
+    .catch((e) => {
+      throw new Error(e.message);
     });
 };
 
 export const fetchMoviesByGenre = (sortType: string, movieGenre: string) => (
-  dispatch: (actionCreator: ActionMoviesSuccess) => void
+  dispatch: ThunkDispatch<RootState, void, ActionMoviesSuccess>
 ): void => {
-  const searchURL = `http://react-cdp-api.herokuapp.com/movies?sortBy=${sortType}&sortOrder=desc&search=${movieGenre}&searchBy=genres`;
+  const searchURL =
+    `${moviesUrl  }?sortBy=${sortType}&sortOrder=desc&search=${movieGenre}&searchBy=genres`;
   fetch(searchURL)
     .then((response) => response.json())
     .then((moviesData) => {
       dispatch(setMoviesSuccess(moviesData));
+    })
+    .catch((e) => {
+      throw new Error(e.message);
     });
 };
 
@@ -89,11 +109,15 @@ export const fetchMoviesByInputValue = (
   sortType: string,
   inputValue: string,
   searchType: string
-) => (dispatch: (actionCreator: ActionMoviesSuccess) => void): void => {
-  const searchURL = `http://react-cdp-api.herokuapp.com/movies?sortBy=${sortType}&sortOrder=desc&search=${inputValue}&searchBy=${searchType}`;
+) => (dispatch: ThunkDispatch<RootState, void, ActionMoviesSuccess>): void => {
+  const searchURL =
+    `${moviesUrl  }?sortBy=${sortType}&sortOrder=desc&search=${inputValue}&searchBy=${searchType}`;
   fetch(searchURL)
     .then((response) => response.json())
     .then((moviesData) => {
       dispatch(setMoviesSuccess(moviesData));
+    })
+    .catch((e) => {
+      throw new Error(e.message);
     });
 };

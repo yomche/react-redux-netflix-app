@@ -2,7 +2,7 @@ import { fetchSuccessAction } from '../actions/action-names';
 import { DataType } from '../types';
 
 const initialState: DataType = {
-  data: [{ poster_path: '', title: '', release_date: '', genres: '', overview: '', id: 0 }],
+  data: [],
 };
 
 export const moviesData = (
