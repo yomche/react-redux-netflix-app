@@ -2,7 +2,7 @@ import React, { FC, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { MoviesSorter } from '../components/movies-sorter/movies-sorter.component';
-import { fetchMovies, setToggleBySortType, fetchMoviesBySortType } from '../actions';
+import { setToggleBySortType, fetchMoviesBySortType } from '../actions';
 import { RootState } from '../store';
 
 export const MoviesSorterContainer: FC = () => {
@@ -15,10 +15,6 @@ export const MoviesSorterContainer: FC = () => {
   const setSortType = useCallback((sortTypeValue) => {
     dispatch(setToggleBySortType(sortTypeValue));
     dispatch(fetchMoviesBySortType(sortTypeValue));
-  }, []);
-
-  useEffect(() => {
-    dispatch(fetchMovies());
   }, []);
 
   return (

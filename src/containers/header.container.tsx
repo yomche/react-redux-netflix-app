@@ -42,10 +42,6 @@ export const HeaderContainer: FC = () => {
     dispatch(setToggleBySearchType(type));
   }, []);
 
-  useEffect(() => {
-    dispatch(fetchMovies());
-  }, []);
-
   return (
     <Header
       viewType={viewType}
