@@ -1,5 +1,5 @@
 import { ThunkDispatch } from 'redux-thunk';
-import { RootState } from "../store";
+import { RootState } from '../store';
 import {
   viewTypeAction,
   currentMovieAction,
@@ -79,7 +79,7 @@ export const setToggleBySearchType = (SearchType: string): ActionToggleBySortTyp
 export const fetchMoviesBySortType = (sortType: string) => (
   dispatch: ThunkDispatch<RootState, void, ActionMoviesSuccess>
 ): void => {
-  const searchURL = `${moviesUrl  }?sortBy=${sortType}&sortOrder=desc`;
+  const searchURL = `${moviesUrl}?sortBy=${sortType}&sortOrder=desc`;
   fetch(searchURL)
     .then((response) => response.json())
     .then((moviesData) => {
@@ -93,8 +93,7 @@ export const fetchMoviesBySortType = (sortType: string) => (
 export const fetchMoviesByGenre = (sortType: string, movieGenre: string) => (
   dispatch: ThunkDispatch<RootState, void, ActionMoviesSuccess>
 ): void => {
-  const searchURL =
-    `${moviesUrl  }?sortBy=${sortType}&sortOrder=desc&search=${movieGenre}&searchBy=genres`;
+  const searchURL = `${moviesUrl}?sortBy=${sortType}&sortOrder=desc&search=${movieGenre}&searchBy=genres`;
   fetch(searchURL)
     .then((response) => response.json())
     .then((moviesData) => {
@@ -110,8 +109,21 @@ export const fetchMoviesByInputValue = (
   inputValue: string,
   searchType: string
 ) => (dispatch: ThunkDispatch<RootState, void, ActionMoviesSuccess>): void => {
-  const searchURL =
-    `${moviesUrl  }?sortBy=${sortType}&sortOrder=desc&search=${inputValue}&searchBy=${searchType}`;
+  const searchURL = `${moviesUrl}?sortBy=${sortType}&sortOrder=desc&search=${inputValue}&searchBy=${searchType}`;
+  fetch(searchURL)
+    .then((response) => response.json())
+    .then((moviesData) => {
+      dispatch(setMoviesSuccess(moviesData));
+    })
+    .catch((e) => {
+      throw new Error(e.message);
+    });
+};
+
+export const fetchMovieById = (movieId: number) => (
+  dispatch: ThunkDispatch<RootState, void, ActionMoviesSuccess>
+): void => {
+  const searchURL = `${moviesUrl}/${movieId}`;
   fetch(searchURL)
     .then((response) => response.json())
     .then((moviesData) => {
