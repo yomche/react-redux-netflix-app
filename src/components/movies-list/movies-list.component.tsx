@@ -10,6 +10,7 @@ type MoviesListProps = {
     releaseDate: string;
     overview: string;
     genre: string;
+    id: number;
   }) => React.MouseEventHandler<HTMLLIElement>;
 };
 
@@ -25,7 +26,7 @@ export const MoviesList: FC<MoviesListProps> = ({ onSetMovieFullInfoType, movies
             genre={genres[0]}
             releaseDate={release_date}
             overview={overview}
-            key={id}
+            id={id}
           />
         ))}
       {moviesData.length === 0 && (
