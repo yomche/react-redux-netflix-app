@@ -17,7 +17,7 @@ module.exports = {
   entry: './src/index.tsx',
 
   output: {
-    publicPath: '',
+    publicPath: '/',
     path: path.resolve(__dirname, 'dist'),
     filename: '[fullhash].bundle.js',
   },
