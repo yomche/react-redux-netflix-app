@@ -9,7 +9,7 @@ export const App: FC = () => (
   <Router>
     <Switch>
       <Route exact path="/" component={MainPageContainer} />
-      <Route exact path="/movies/:movieId" component={MoviePageContainer} />
+      <Route exact path="/movies/:id" component={MoviePageContainer} />
       <Route path="*" component={NotFoundContainer} />
     </Switch>
   </Router>
