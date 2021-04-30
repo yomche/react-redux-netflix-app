@@ -8,8 +8,8 @@ import { GlobalStyle } from '../../styles/global-styles';
 import { StyledHeader } from '../components/header/header.styles';
 import { MovieFullInfo } from '../components/movie-full-info/movie-full-info.component';
 import { NavPanel } from '../components/nav-panel/nav-panel.component';
-import { MoviesSorterContainer } from '../containers/movies-sorter.container';
-import { MoviesListContainer } from '../containers/movies-list.container';
+import { MoviesSorterContainer } from './movies-sorter.container';
+import { MoviesListContainer } from './movies-list.container';
 import { Footer } from '../components/footer/footer.component';
 import { NotFoundContainer } from '../components/not-found/not-found.component';
 import { fetchMovies, setViewType } from '../actions';
@@ -31,16 +31,16 @@ export const MoviePageContainer: FC = () => {
 
   const { id } = useParams<ParamTypes>();
 
-  const currentMovieById = moviesData.find((currentValue: MoviesDataType, index, arr) => {
-    return currentValue.id.toString() === id;
-  });
+  const currentMovieById = moviesData.find(
+    (currentValue: MoviesDataType, index, arr) => currentValue.id.toString() === id
+  );
 
   return (
     <>
       <GlobalStyle />
       <StyledHeader>
         <NavPanel onClickToChange={onSetMovieListType} />
-        {currentMovieById != undefined ? (
+        {currentMovieById !== undefined ? (
           <MovieFullInfo currentMovieFullInfo={currentMovieById} />
         ) : (
           <NotFoundContainer />
