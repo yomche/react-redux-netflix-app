@@ -10,7 +10,7 @@ type MovieFullInfoProps = {
 export const MovieFullInfo: FC<MovieFullInfoProps> = ({ currentMovieFullInfo }) => (
   <StyledMovieFullInfoHeader>
     <MovieCardFullSize
-      posterPath={currentMovieFullInfo.posterPath}
+      poster_path={currentMovieFullInfo.poster_path}
       title={currentMovieFullInfo.title}
       releaseDate={currentMovieFullInfo.releaseDate}
       overview={currentMovieFullInfo.overview}

@@ -12,7 +12,7 @@ export type MoviesDataType = {
 };
 
 export type CurrentMovieType = {
-  posterPath: string;
+  poster_path: string;
   title: string;
   releaseDate: string;
   overview: string;

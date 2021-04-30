@@ -2,7 +2,7 @@ import { currentMovieAction } from '../actions/action-names';
 import { CurrentMovieType } from '../types';
 
 export const initialState: CurrentMovieType = {
-  posterPath: '',
+  poster_path: '',
   title: '',
   releaseDate: '',
   overview: '',

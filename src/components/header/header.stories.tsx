@@ -13,7 +13,7 @@ storiesOf('Knobs/Header', module)
     };
     const viewTypeSelect = options('viewType', viewType, 'movieList', { display: 'select' });
     const currentMovie = {
-      posterPath:
+      poster_path:
         'https://sun9-72.userapi.com/impf/a-V1H8zLHXqzMb3UY8yzgicFlOVZkHw4TNXeLQ/PHLkRY64ehg.jpg?size=1459x2160&quality=96&sign=1063b2565af2a89c8ae442b61427f9e7&type=album',
       title: 'Black Mirror',
       releaseDate: '2011-02-07',
