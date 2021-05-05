@@ -12,13 +12,13 @@ type MovieCardProps = {
   poster_path: string;
   title: string;
   genre: string;
-  releaseDate: string;
+  release_date: string;
   overview: string;
   key: number;
   onClickToChange: (currentMovie: {
     poster_path: string;
     title: string;
-    releaseDate: string;
+    release_date: string;
     overview: string;
     genre: string;
   }) => React.MouseEventHandler<HTMLLIElement>;
@@ -28,16 +28,16 @@ export const MovieCard: FC<MovieCardProps> = ({
   poster_path,
   title,
   genre,
-  releaseDate,
+  release_date,
   overview,
   onClickToChange,
 }) => (
-  <StyledMovieCard onClick={onClickToChange({ poster_path, title, releaseDate, overview, genre })}>
+  <StyledMovieCard onClick={onClickToChange({ poster_path, title, release_date, overview, genre })}>
     <MovieCardPoster src={poster_path} />
     <StyledMovieCardTitle> {title} </StyledMovieCardTitle>
     <StyledMovieCardInfo>
       <StyledMovieCardGenre> {genre} </StyledMovieCardGenre>
-      <StyledMovieCardDate> {releaseDate} </StyledMovieCardDate>
+      <StyledMovieCardDate> {release_date} </StyledMovieCardDate>
     </StyledMovieCardInfo>
   </StyledMovieCard>
 );

@@ -12,7 +12,7 @@ export const MovieFullInfo: FC<MovieFullInfoProps> = ({ currentMovieFullInfo }) 
     <MovieCardFullSize
       poster_path={currentMovieFullInfo.poster_path}
       title={currentMovieFullInfo.title}
-      releaseDate={currentMovieFullInfo.releaseDate}
+      release_date={currentMovieFullInfo.release_date}
       overview={currentMovieFullInfo.overview}
       key={currentMovieFullInfo.id}
     />

@@ -1,7 +1,3 @@
-export type DataType = {
-  data: [];
-};
-
 export type MoviesDataType = {
   poster_path: string;
   title: string;
@@ -14,12 +10,7 @@ export type MoviesDataType = {
 export type CurrentMovieType = {
   poster_path: string;
   title: string;
-  releaseDate: string;
+  release_date: string;
   overview: string;
   id: number;
-};
-
-export type FormStateType = {
-  inputValue: string;
-  searchType: string;
 };
