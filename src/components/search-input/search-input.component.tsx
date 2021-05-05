@@ -33,55 +33,52 @@ export const SearchInput: FC<SearchInputProps> = ({
   toggleMovieSearchType,
   movieSearchType,
 }) => (
-    <Form
-      onSubmit={(value: string) => {
-        updateSearchInputValue(value);
-      }}
-      initialValues={{ searchType: 'title' }}
-      subscription={{ submitting: true, pristine: true }}
-    >
-      {({ handleSubmit, submitting }) => (
-        <StyledSearchForm onSubmit={handleSubmit}>
-          <FormSpy onChange={(inputValue) => setInputValue(inputValue)} />
-          <StyledHeading>FIND YOUR MOVIE</StyledHeading>
-          <Field
-            name="inputValue"
-            validate={composeValidators(required, mustBeString, minValue(3))}
-          >
-            {({ input, meta }) => (
-              <StyledInput>
-                {meta.error && meta.touched && <StyledError>{meta.error}</StyledError>}
-                <input {...input} type="text" placeholder="Quentin Tarantino" />
-              </StyledInput>
-            )}
-          </Field>
-          <StyledControlsSection>
-            <StyledTitleButton isActive={movieSearchType === 'title'}>
-              <Field
-                name="searchType"
-                component="input"
-                type="radio"
-                value="title"
-                onClick={() => toggleMovieSearchType('title')}
-              />{' '}
-              TITLE
-            </StyledTitleButton>
-            <StyledGenreButton isActive={movieSearchType === 'genre'}>
-              <Field
-                name="searchType"
-                component="input"
-                type="radio"
-                value="genres"
-                onClick={() => toggleMovieSearchType('genre')}
-              />{' '}
-              GENRE
-            </StyledGenreButton>
-            <StyledSubmitButton type="submit" disabled={submitting}>
-              {' '}
-              SUBMIT{' '}
-            </StyledSubmitButton>
-          </StyledControlsSection>
-        </StyledSearchForm>
-      )}
-    </Form>
-  );
+  <Form
+    onSubmit={(value: string) => {
+      updateSearchInputValue(value);
+    }}
+    initialValues={{ searchType: 'title' }}
+    subscription={{ submitting: true, pristine: true }}
+  >
+    {({ handleSubmit, submitting }) => (
+      <StyledSearchForm onSubmit={handleSubmit}>
+        <FormSpy onChange={(inputValue) => setInputValue(inputValue)} />
+        <StyledHeading>FIND YOUR MOVIE</StyledHeading>
+        <Field name="inputValue" validate={composeValidators(required, mustBeString, minValue(3))}>
+          {({ input, meta }) => (
+            <StyledInput>
+              {meta.error && meta.touched && <StyledError>{meta.error}</StyledError>}
+              <input {...input} type="text" placeholder="Quentin Tarantino" />
+            </StyledInput>
+          )}
+        </Field>
+        <StyledControlsSection>
+          <StyledTitleButton isActive={movieSearchType === 'title'}>
+            <Field
+              name="searchType"
+              component="input"
+              type="radio"
+              value="title"
+              onClick={() => toggleMovieSearchType('title')}
+            />{' '}
+            TITLE
+          </StyledTitleButton>
+          <StyledGenreButton isActive={movieSearchType === 'genre'}>
+            <Field
+              name="searchType"
+              component="input"
+              type="radio"
+              value="genres"
+              onClick={() => toggleMovieSearchType('genre')}
+            />{' '}
+            GENRE
+          </StyledGenreButton>
+          <StyledSubmitButton type="submit" disabled={submitting}>
+            {' '}
+            SUBMIT{' '}
+          </StyledSubmitButton>
+        </StyledControlsSection>
+      </StyledSearchForm>
+    )}
+  </Form>
+);

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-curly-brace-presence */
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { Logo } from '../logo/logo.component';
@@ -11,7 +10,7 @@ type NavPanelProps = {
 export const NavPanel: FC<NavPanelProps> = ({ onClickToChange }) => (
   <StyledNav>
     <Logo />
-    <Link to={'/'}>
+    <Link to="/">
       <StyledSearchButton onClick={onClickToChange}> SEARCH </StyledSearchButton>
     </Link>
   </StyledNav>
