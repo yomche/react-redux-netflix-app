@@ -1,12 +1,11 @@
 import { updateSearchInputValueAction } from '../actions/action-names';
-import { FormStateType } from '../types';
 
-const initialState = { inputValue: '', searchType: 'title' };
+const initialState = '';
 
 export function searchInputValueData(
   state = initialState,
-  action: { type: string; payload: FormStateType }
-): FormStateType {
+  action: { type: string; payload: string }
+): string {
   switch (action.type) {
     case updateSearchInputValueAction:
       return action.payload;
