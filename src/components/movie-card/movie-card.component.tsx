@@ -31,17 +31,13 @@ export const MovieCard: FC<MovieCardProps> = ({
   releaseDate,
   overview,
   onClickToChange,
-}) => {
-  return (
-    <StyledMovieCard
-      onClick={onClickToChange({ poster_path, title, releaseDate, overview, genre })}
-    >
-      <MovieCardPoster src={poster_path} />
-      <StyledMovieCardTitle> {title} </StyledMovieCardTitle>
-      <StyledMovieCardInfo>
-        <StyledMovieCardGenre> {genre} </StyledMovieCardGenre>
-        <StyledMovieCardDate> {releaseDate} </StyledMovieCardDate>
-      </StyledMovieCardInfo>
-    </StyledMovieCard>
-  );
-};
+}) => (
+  <StyledMovieCard onClick={onClickToChange({ poster_path, title, releaseDate, overview, genre })}>
+    <MovieCardPoster src={poster_path} />
+    <StyledMovieCardTitle> {title} </StyledMovieCardTitle>
+    <StyledMovieCardInfo>
+      <StyledMovieCardGenre> {genre} </StyledMovieCardGenre>
+      <StyledMovieCardDate> {releaseDate} </StyledMovieCardDate>
+    </StyledMovieCardInfo>
+  </StyledMovieCard>
+);
