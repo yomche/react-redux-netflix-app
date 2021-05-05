@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 
 import { GlobalStyle } from '../../styles/global-styles';
 import { ErrorBoundaryMoviesList } from './error-boundary';
