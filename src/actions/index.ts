@@ -11,6 +11,8 @@ import {
 import { moviesUrl } from '../constants/app.constants';
 import { CurrentMovieType, MoviesDataType } from '../types';
 
+import { generatedUrlByGenre, generatedUrlBySortType, generatedUrlByInputValue } from '../handlers';
+
 type ActionViewType = {
   type: string;
   payload: string;
@@ -54,7 +56,7 @@ export const fetchMovies = () => (
   fetch(moviesUrl)
     .then((response) => response.json())
     .then((moviesData) => {
-      dispatch(setMoviesSuccess(moviesData));
+      dispatch(setMoviesSuccess(moviesData.data));
     })
     .catch((e) => {
       throw new Error(e.message);
@@ -79,11 +81,10 @@ export const setToggleBySearchType = (SearchType: string): ActionToggleBySortTyp
 export const fetchMoviesBySortType = (sortType: string) => (
   dispatch: ThunkDispatch<RootState, void, ActionMoviesSuccess>
 ): void => {
-  const searchURL = `${moviesUrl}?sortBy=${sortType}&sortOrder=desc`;
-  fetch(searchURL)
+  fetch(generatedUrlBySortType(sortType))
     .then((response) => response.json())
     .then((moviesData) => {
-      dispatch(setMoviesSuccess(moviesData));
+      dispatch(setMoviesSuccess(moviesData.data));
     })
     .catch((e) => {
       throw new Error(e.message);
@@ -93,11 +94,10 @@ export const fetchMoviesBySortType = (sortType: string) => (
 export const fetchMoviesByGenre = (sortType: string, movieGenre: string) => (
   dispatch: ThunkDispatch<RootState, void, ActionMoviesSuccess>
 ): void => {
-  const searchURL = `${moviesUrl}?sortBy=${sortType}&sortOrder=desc&search=${movieGenre}&searchBy=genres`;
-  fetch(searchURL)
+  fetch(generatedUrlByGenre(sortType, movieGenre))
     .then((response) => response.json())
     .then((moviesData) => {
-      dispatch(setMoviesSuccess(moviesData));
+      dispatch(setMoviesSuccess(moviesData.data));
     })
     .catch((e) => {
       throw new Error(e.message);
@@ -109,25 +109,10 @@ export const fetchMoviesByInputValue = (
   inputValue: string,
   searchType: string
 ) => (dispatch: ThunkDispatch<RootState, void, ActionMoviesSuccess>): void => {
-  const searchURL = `${moviesUrl}?sortBy=${sortType}&sortOrder=desc&search=${inputValue}&searchBy=${searchType}`;
-  fetch(searchURL)
+  fetch(generatedUrlByInputValue(sortType, inputValue, searchType))
     .then((response) => response.json())
     .then((moviesData) => {
-      dispatch(setMoviesSuccess(moviesData));
-    })
-    .catch((e) => {
-      throw new Error(e.message);
-    });
-};
-
-export const fetchMovieById = (movieId: number) => (
-  dispatch: ThunkDispatch<RootState, void, ActionMoviesSuccess>
-): void => {
-  const searchURL = `${moviesUrl}/${movieId}`;
-  fetch(searchURL)
-    .then((response) => response.json())
-    .then((moviesData) => {
-      dispatch(setMoviesSuccess(moviesData));
+      dispatch(setMoviesSuccess(moviesData.data));
     })
     .catch((e) => {
       throw new Error(e.message);
