@@ -16,7 +16,7 @@ export const HeaderContainer: FC = () => {
   const { viewType, currentMovie, movieSortType, movieSearchType } = useSelector(
     (state: RootState) => ({
       viewType: state.viewTypeData,
-      currentMovie: state.currentMovieData,
+      currentMovie: state.currentMovieData.get('movie'),
       movieSortType: state.toggleSortTypeData,
       movieSearchType: state.toggleSearchTypeData,
     })

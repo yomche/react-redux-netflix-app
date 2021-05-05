@@ -19,7 +19,7 @@ export const MoviesSorterContainer: FC = () => {
 
   return (
     <MoviesSorter
-      moviesAmount={moviesAmount.data}
+      moviesAmount={moviesAmount.length}
       onSetSortType={setSortType}
       movieSortType={movieSortType}
     />

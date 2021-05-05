@@ -31,7 +31,7 @@ export const MoviePageContainer: FC = () => {
 
   const { id } = useParams<ParamTypes>();
 
-  const currentMovieById = moviesData.data.find(
+  const currentMovieById = moviesData.find(
     (currentValue: MoviesDataType) => currentValue.id.toString() === id
   );
 

@@ -1,15 +1,22 @@
 import { Map } from 'immutable';
 import { fetchSuccessAction } from '../actions/action-names';
-import { DataType } from '../types';
+import { MoviesDataType } from '../types';
 
-const initialState = Map({
-  movies: {},
+interface MoviesDataState extends Map<string, any> {
+  movies?: MoviesDataType[];
+}
+
+const initialState: MoviesDataState = Map({
+  movies: [],
 });
 
-export const moviesData = (state = initialState, action: { type: string; payload: any }): any => {
+export const moviesData = (
+  state = initialState,
+  action: { type: string; payload: MoviesDataType[] }
+): MoviesDataState => {
   switch (action.type) {
     case fetchSuccessAction:
-      return state.update('movies', () => action.payload);
+      return state.set('movies', action.payload);
     default:
       return state;
   }

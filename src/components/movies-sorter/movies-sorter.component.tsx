@@ -9,7 +9,7 @@ import {
 } from './movies-sorter.styles';
 
 type MoviesSorterProps = {
-  moviesAmount: [];
+  moviesAmount: number;
   onSetSortType: (sortType: string) => void;
   movieSortType: string;
 };
@@ -22,7 +22,7 @@ export const MoviesSorter: FC<MoviesSorterProps> = ({
   <StyledSorter>
     <StyledSorterInfo>
       {moviesAmount !== undefined && (
-        <StyledSorterFoundData>{moviesAmount.length} movies found</StyledSorterFoundData>
+        <StyledSorterFoundData>{moviesAmount} movies found</StyledSorterFoundData>
       )}
       <StyledSorterResult>
         <StyledSorterDataHeading>Sort by </StyledSorterDataHeading>
