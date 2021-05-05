@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import React, { FC } from 'react';
 import { StyledMoviesList, StyledContainer, StyledMoviesNotFound } from './movies-list.styles';
 import { MovieCard } from '../movie-card/movie-card.component';
-import { Link } from 'react-router-dom';
+import { DataType } from '../../types';
 
 type MoviesListProps = {
-  moviesData: [];
+  moviesData: DataType;
   onSetMovieFullInfoType: (currentMovie: {
     poster_path: string;
     title: string;
@@ -18,8 +19,8 @@ type MoviesListProps = {
 export const MoviesList: FC<MoviesListProps> = ({ onSetMovieFullInfoType, moviesData }) => (
   <StyledContainer>
     <StyledMoviesList>
-      {moviesData !== undefined &&
-        moviesData.map(({ poster_path, title, genres, release_date, overview, id }) => (
+      {moviesData.data !== undefined &&
+        moviesData.data.map(({ poster_path, title, genres, release_date, overview, id }) => (
           <Link to={`/movies/${id}`}>
             <MovieCard
               onClickToChange={onSetMovieFullInfoType}
@@ -32,7 +33,7 @@ export const MoviesList: FC<MoviesListProps> = ({ onSetMovieFullInfoType, movies
             />
           </Link>
         ))}
-      {moviesData.length === 0 && (
+      {moviesData.data !== undefined && moviesData.data.length === 0 && (
         <StyledMoviesNotFound>Sorry, no movies were found</StyledMoviesNotFound>
       )}
     </StyledMoviesList>

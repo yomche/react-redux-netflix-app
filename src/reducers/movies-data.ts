@@ -1,17 +1,15 @@
+import { Map } from 'immutable';
 import { fetchSuccessAction } from '../actions/action-names';
 import { DataType } from '../types';
 
-const initialState: DataType = {
-  data: [],
-};
+const initialState = Map({
+  movies: {},
+});
 
-export const moviesData = (
-  state = initialState,
-  action: { type: string; payload: DataType }
-): DataType => {
+export const moviesData = (state = initialState, action: { type: string; payload: any }): any => {
   switch (action.type) {
     case fetchSuccessAction:
-      return action.payload;
+      return state.update('movies', () => action.payload);
     default:
       return state;
   }

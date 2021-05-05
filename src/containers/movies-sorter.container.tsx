@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect } from 'react';
+import React, { FC, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { MoviesSorter } from '../components/movies-sorter/movies-sorter.component';
@@ -7,7 +7,7 @@ import { RootState } from '../store';
 
 export const MoviesSorterContainer: FC = () => {
   const { moviesAmount, movieSortType } = useSelector((state: RootState) => ({
-    moviesAmount: state.moviesData.data.length,
+    moviesAmount: state.moviesData.get('movies'),
     movieSortType: state.toggleSortTypeData,
   }));
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export const MoviesSorterContainer: FC = () => {
 
   return (
     <MoviesSorter
-      moviesAmount={moviesAmount}
+      moviesAmount={moviesAmount.data}
       onSetSortType={setSortType}
       movieSortType={movieSortType}
     />

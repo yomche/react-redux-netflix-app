@@ -22,7 +22,7 @@ export const MoviePageContainer: FC = () => {
     dispatch(fetchMovies());
   }, []);
   const { moviesData } = useSelector((state: RootState) => ({
-    moviesData: state.moviesData.data,
+    moviesData: state.moviesData.get('movies'),
   }));
 
   interface ParamTypes {
@@ -31,8 +31,8 @@ export const MoviePageContainer: FC = () => {
 
   const { id } = useParams<ParamTypes>();
 
-  const currentMovieById = moviesData.find(
-    (currentValue: MoviesDataType, index, arr) => currentValue.id.toString() === id
+  const currentMovieById = moviesData.data.find(
+    (currentValue: MoviesDataType) => currentValue.id.toString() === id
   );
 
   return (
