@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import React, { ComponentProps } from 'react';
 
 import { Story } from '@storybook/react';
