@@ -14,3 +14,10 @@ export type CurrentMovieType = {
   overview: string;
   id: number;
 };
+
+export type ResponseType = {
+  data: MoviesDataType[];
+  total: number;
+  offset: number;
+  limit: number;
+};

@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-import { currentMovieAction } from '../actions/action-names';
+import { setCurrentMovieAction } from '../actions/action-names';
 import { CurrentMovieType } from '../types';
 
 interface currentMovieDataState extends Map<string, any> {
@@ -15,7 +15,7 @@ export function currentMovieData(
   action: { type: string; payload: CurrentMovieType }
 ): currentMovieDataState {
   switch (action.type) {
-    case currentMovieAction:
+    case setCurrentMovieAction:
       return state.set('movie', action.payload);
     default:
       return state;
