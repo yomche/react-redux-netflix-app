@@ -1,13 +1,13 @@
-import { toggleBySearchTypeAction } from '../actions/action-names';
+import { setSearchTypeAction } from '../actions/action-names';
 
 export const initialState = 'title';
 
-export function toggleSearchTypeData(
+export function searchTypeData(
   state = initialState,
   action: { type: string; payload: string }
 ): string {
   switch (action.type) {
-    case toggleBySearchTypeAction:
+    case setSearchTypeAction:
       return action.payload;
     default:
       return state;

@@ -1,13 +1,13 @@
-import { toggleBySortTypeAction } from '../actions/action-names';
+import { setSortTypeAction } from '../actions/action-names';
 
 export const initialState = 'release_date';
 
-export function toggleSortTypeData(
+export function sortTypeData(
   state = initialState,
   action: { type: string; payload: string }
 ): string {
   switch (action.type) {
-    case toggleBySortTypeAction:
+    case setSortTypeAction:
       return action.payload;
     default:
       return state;
