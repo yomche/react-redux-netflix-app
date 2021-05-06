@@ -10,13 +10,13 @@ import {
 
 type MoviesSorterProps = {
   moviesAmount: number;
-  onSetSortType: (sortType: string) => void;
+  onSetMovieSortType: (sortType: string) => void;
   movieSortType: string;
 };
 
 export const MoviesSorter: FC<MoviesSorterProps> = ({
   moviesAmount,
-  onSetSortType,
+  onSetMovieSortType,
   movieSortType,
 }) => (
   <StyledSorter>
@@ -29,7 +29,7 @@ export const MoviesSorter: FC<MoviesSorterProps> = ({
         <StyledSorterData
           isActive={movieSortType === 'release_date'}
           onClick={() => {
-            onSetSortType('release_date');
+            onSetMovieSortType('release_date');
           }}
         >
           {' '}
@@ -38,7 +38,7 @@ export const MoviesSorter: FC<MoviesSorterProps> = ({
         <StyledSorterData
           isActive={movieSortType === 'vote_count'}
           onClick={() => {
-            onSetSortType('vote_count');
+            onSetMovieSortType('vote_count');
           }}
         >
           rating

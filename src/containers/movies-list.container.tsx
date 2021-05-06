@@ -9,7 +9,7 @@ import { RootState } from '../store';
 export const MoviesListContainer: FC = () => {
   const { moviesData, movieSortType } = useSelector((state: RootState) => ({
     moviesData: state.moviesData.get('movies'),
-    movieSortType: state.toggleSortTypeData,
+    movieSortType: state.sortTypeData,
   }));
   const dispatch = useDispatch();
 

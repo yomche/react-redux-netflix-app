@@ -14,7 +14,7 @@ import {
 
 type SearchInputProps = {
   updateSearchInputValue: (value: string) => void;
-  toggleMovieSearchType: (value: string) => void;
+  setMovieSearchType: (value: string) => void;
   movieSearchType: string;
 };
 
@@ -30,7 +30,7 @@ const composeValidators = (
 
 export const SearchInput: FC<SearchInputProps> = ({
   updateSearchInputValue,
-  toggleMovieSearchType,
+  setMovieSearchType,
   movieSearchType,
 }) => (
   <Form
@@ -59,7 +59,7 @@ export const SearchInput: FC<SearchInputProps> = ({
               component="input"
               type="radio"
               value="title"
-              onClick={() => toggleMovieSearchType('title')}
+              onClick={() => setMovieSearchType('title')}
             />{' '}
             TITLE
           </StyledTitleButton>
@@ -69,7 +69,7 @@ export const SearchInput: FC<SearchInputProps> = ({
               component="input"
               type="radio"
               value="genres"
-              onClick={() => toggleMovieSearchType('genre')}
+              onClick={() => setMovieSearchType('genre')}
             />{' '}
             GENRE
           </StyledGenreButton>

@@ -8,7 +8,7 @@ import {
   fetchMovies,
   setInputValue,
   fetchMoviesByInputValue,
-  setToggleBySearchType,
+  setSearchType,
 } from '../actions';
 import { RootState } from '../store';
 
@@ -17,8 +17,8 @@ export const HeaderContainer: FC = () => {
     (state: RootState) => ({
       viewType: state.viewTypeData,
       currentMovie: state.currentMovieData.get('movie'),
-      movieSortType: state.toggleSortTypeData,
-      movieSearchType: state.toggleSearchTypeData,
+      movieSortType: state.sortTypeData,
+      movieSearchType: state.searchTypeData,
     })
   );
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ export const HeaderContainer: FC = () => {
   }, []);
 
   const setMovieSearchType = useCallback((type) => {
-    dispatch(setToggleBySearchType(type));
+    dispatch(setSearchType(type));
   }, []);
 
   return (

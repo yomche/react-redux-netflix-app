@@ -29,7 +29,7 @@ export const Header: FC<HeaderProps> = ({
       <>
         <SearchInput
           updateSearchInputValue={onSetSearchInputValue}
-          toggleMovieSearchType={onSetMovieSearchType}
+          setMovieSearchType={onSetMovieSearchType}
           movieSearchType={movieSearchType}
         />
       </>
