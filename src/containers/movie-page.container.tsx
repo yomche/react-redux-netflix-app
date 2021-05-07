@@ -18,7 +18,6 @@ export const MoviePageContainer: FC = () => {
   const dispatch = useDispatch();
   const onSetMovieListType = useCallback(() => {
     dispatch(setViewType(TypeOfView.movieList));
-    dispatch(fetchMovies());
   }, []);
   const { currentMovieById } = useSelector((state: RootState) => ({
     currentMovieById: state.currentMovieData.get('movie'),
@@ -41,10 +40,10 @@ export const MoviePageContainer: FC = () => {
       <GlobalStyle />
       <StyledHeader>
         <NavPanel onClickToChange={onSetMovieListType} />
-        {currentMovieById.id !== Number(id) ? (
-          <NotFoundContainer />
-        ) : (
+        {JSON.stringify(currentMovieById) !== JSON.stringify({}) ? (
           <MovieFullInfo currentMovieFullInfo={currentMovieById} />
+        ) : (
+          <NotFoundContainer />
         )}
       </StyledHeader>
       <MoviesSorterContainer />

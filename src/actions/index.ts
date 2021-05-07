@@ -124,13 +124,14 @@ export const fetchMoviesByInputValue = (
 };
 
 export const fetchMovieById = (movieId: number) => (
-  dispatch: ThunkDispatch<RootState, void, ActionCurrentMovie>
+  dispatch: ThunkDispatch<RootState, void, any>
 ): void => {
   const searchURL = `${moviesUrl}/${movieId}`;
   fetch(searchURL)
     .then((response) => response.json())
     .then((movieData: MoviesDataType) => {
       dispatch(setCurrentMovie(movieData));
+      dispatch(setViewType(TypeOfView.movieFullInfo));
     })
     .catch((e) => {
       throw new Error(e.message);
