@@ -41,10 +41,10 @@ export const MoviePageContainer: FC = () => {
       <GlobalStyle />
       <StyledHeader>
         <NavPanel onClickToChange={onSetMovieListType} />
-        {currentMovieById !== undefined ? (
-          <MovieFullInfo currentMovieFullInfo={currentMovieById} />
-        ) : (
+        {currentMovieById.id !== Number(id) ? (
           <NotFoundContainer />
+        ) : (
+          <MovieFullInfo currentMovieFullInfo={currentMovieById} />
         )}
       </StyledHeader>
       <MoviesSorterContainer />
