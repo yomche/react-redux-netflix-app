@@ -21,9 +21,7 @@ export const MoviesSorter: FC<MoviesSorterProps> = ({
 }) => (
   <StyledSorter>
     <StyledSorterInfo>
-      {moviesAmount !== undefined && (
-        <StyledSorterFoundData>{moviesAmount} movies found</StyledSorterFoundData>
-      )}
+      <StyledSorterFoundData>{moviesAmount} movies found</StyledSorterFoundData>
       <StyledSorterResult>
         <StyledSorterDataHeading>Sort by </StyledSorterDataHeading>
         <StyledSorterData
