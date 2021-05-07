@@ -1,8 +1,7 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { RootState } from '../store';
-import { MoviesDataType } from '../types';
 
 import { GlobalStyle } from '../../styles/global-styles';
 import { StyledHeader } from '../components/header/header.styles';
@@ -12,7 +11,7 @@ import { MoviesSorterContainer } from './movies-sorter.container';
 import { MoviesListContainer } from './movies-list.container';
 import { Footer } from '../components/footer/footer.component';
 import { NotFoundContainer } from '../components/not-found/not-found.component';
-import { fetchMovies, setViewType } from '../actions';
+import { fetchMovieById, fetchMovies, setViewType } from '../actions';
 import { TypeOfView } from '../constants/app.constants';
 
 export const MoviePageContainer: FC = () => {
@@ -21,19 +20,21 @@ export const MoviePageContainer: FC = () => {
     dispatch(setViewType(TypeOfView.movieList));
     dispatch(fetchMovies());
   }, []);
-  const { moviesData } = useSelector((state: RootState) => ({
-    moviesData: state.moviesData.get('movies'),
+  const { currentMovieById } = useSelector((state: RootState) => ({
+    currentMovieById: state.currentMovieData.get('movie'),
   }));
 
   interface ParamTypes {
-    id: string;
+    id?: string;
   }
 
   const { id } = useParams<ParamTypes>();
 
-  const currentMovieById = moviesData.find(
-    (currentValue: MoviesDataType) => currentValue.id.toString() === id
-  );
+  useEffect(() => {
+    if (currentMovieById.id === undefined) {
+      dispatch(fetchMovieById(Number(id)));
+    }
+  }, [id]);
 
   return (
     <>

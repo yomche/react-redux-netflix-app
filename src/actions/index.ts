@@ -8,7 +8,7 @@ import {
   setSortTypeAction,
   setSearchTypeAction,
 } from './action-names';
-import { moviesUrl } from '../constants/app.constants';
+import { moviesUrl, TypeOfView } from '../constants/app.constants';
 import { CurrentMovieType, MoviesDataType, ResponseType } from '../types';
 
 import { generatedUrlByGenre, generatedUrlBySortType, generatedUrlByInputValue } from '../handlers';
@@ -50,13 +50,12 @@ export function setMoviesSuccess(moviesList: MoviesDataType[]): ActionFetchSucce
   return { type: fetchSuccessAction, payload: moviesList };
 }
 
-export const fetchMovies = () => (
-  dispatch: ThunkDispatch<RootState, void, ActionFetchSuccess>
-): void => {
+export const fetchMovies = () => (dispatch: ThunkDispatch<RootState, void, any>): void => {
   fetch(moviesUrl)
     .then((response) => response.json())
     .then((moviesData: ResponseType) => {
       dispatch(setMoviesSuccess(moviesData.data));
+      dispatch(setViewType(TypeOfView.movieList));
     })
     .catch((e) => {
       throw new Error(e.message);
@@ -118,6 +117,20 @@ export const fetchMoviesByInputValue = (
     .then((response) => response.json())
     .then((moviesData: ResponseType) => {
       dispatch(setMoviesSuccess(moviesData.data));
+    })
+    .catch((e) => {
+      throw new Error(e.message);
+    });
+};
+
+export const fetchMovieById = (movieId: number) => (
+  dispatch: ThunkDispatch<RootState, void, ActionCurrentMovie>
+): void => {
+  const searchURL = `${moviesUrl}/${movieId}`;
+  fetch(searchURL)
+    .then((response) => response.json())
+    .then((movieData: MoviesDataType) => {
+      dispatch(setCurrentMovie(movieData));
     })
     .catch((e) => {
       throw new Error(e.message);
