@@ -1,5 +1,6 @@
 import React, { FC, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { TypeOfView } from '../constants/app.constants';
 import { Header } from '../components/header/header.component';
@@ -22,6 +23,7 @@ export const HeaderContainer: FC = () => {
     })
   );
   const dispatch = useDispatch();
+  const history = useHistory();
   const setMovieListType = useCallback(() => {
     dispatch(setViewType(TypeOfView.movieList));
     dispatch(fetchMovies());
@@ -29,12 +31,9 @@ export const HeaderContainer: FC = () => {
 
   const setSearchInputValue = useCallback((value) => {
     dispatch(setInputValue(value));
-    dispatch(
-      fetchMoviesByInputValue(
-        movieSortType,
-        setInputValue(value).payload.inputValue,
-        setInputValue(value).payload.searchType
-      )
+    dispatch(fetchMoviesByInputValue(movieSortType, value.inputValue, value.searchType));
+    history.push(
+      `/?sortBy=${movieSortType}&sortOrder=desc&search=${value.inputValue}&searchBy=${value.searchType}`
     );
   }, []);
 
