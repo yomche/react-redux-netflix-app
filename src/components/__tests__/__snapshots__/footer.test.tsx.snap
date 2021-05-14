@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< Footer /> component renders correctly 1`] = `
+<DocumentFragment>
+  <footer
+    class="StyledFooter-sc-1nuij0y-0 jppfwh"
+  >
+    <div
+      class="StyledLogo-sc-1wiya5k-0 ehakiy"
+    />
+    <p
+      class="StyledCopyright-sc-1nuij0y-1 gpUgup"
+    >
+      ALL RIGHTS RESERVED, 2021
+    </p>
+  </footer>
+</DocumentFragment>
+`;

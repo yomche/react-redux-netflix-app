@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< MovieFullInfo /> component renders correctly 1`] = `
+<DocumentFragment>
+  <header
+    class="StyledMovieFullInfoHeader-hsjhx9-0 ByEMN"
+  >
+    <section
+      class="StyleFullMovieCard-sc-1y5zepo-0 eGohNm"
+    >
+      <img
+        class="StyledMovieCardPoster-sc-1y5zepo-1 cLMjai"
+        src="Test URL"
+      />
+      <div
+        class="StyledMovieCardInfo-sc-1y5zepo-2"
+      >
+        <h1
+          class="StyledHeading-sc-1y5zepo-3 kNlvlE"
+        >
+           Test title 
+        </h1>
+        <p
+          class="StyledText-sc-1y5zepo-4 clrOEw"
+        >
+           Test release date 
+        </p>
+        <p
+          class="StyledText-sc-1y5zepo-4 clrOEw"
+        >
+           Test overview 
+        </p>
+      </div>
+    </section>
+  </header>
+</DocumentFragment>
+`;

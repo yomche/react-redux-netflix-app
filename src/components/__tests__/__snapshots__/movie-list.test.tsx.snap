@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< MovieList /> component renders with movies data 1`] = `
+<DocumentFragment>
+  <section
+    class="StyledContainer-sc-825f46-0 jgaCUf"
+  >
+    <ul
+      class="StyledMoviesList-sc-825f46-1 fiLvoX"
+    >
+      <a
+        href="/movies/1000"
+      >
+        <li
+          class="StyledMovieCard-sc-1it6lj2-0 iqQZfi"
+        >
+          <img
+            class="MovieCardPoster-sc-1it6lj2-1 kABfhE"
+            src="https://sun9-72.userapi.com/impf/a-V1H8zLHXqzMb3UY8yzgicFlOVZkHw4TNXeLQ/PHLkRY64ehg.jpg?size=1459x2160&quality=96&sign=1063b2565af2a89c8ae442b61427f9e7&type=album"
+          />
+          <h3
+            class="StyledMovieCardTitle-sc-1it6lj2-2 jAURuc"
+          >
+             Black Mirror 
+          </h3>
+          <div
+            class="StyledMovieCardInfo-sc-1it6lj2-5 hGVonm"
+          >
+            <p
+              class="StyledMovieCardGenre-sc-1it6lj2-3 hBpVXW"
+            >
+               Drama 
+            </p>
+            <p
+              class="StyledMovieCardDate-sc-1it6lj2-4 etwnAe"
+            >
+               2011-02-07 
+            </p>
+          </div>
+        </li>
+      </a>
+      <a
+        href="/movies/1001"
+      >
+        <li
+          class="StyledMovieCard-sc-1it6lj2-0 iqQZfi"
+        >
+          <img
+            class="MovieCardPoster-sc-1it6lj2-1 kABfhE"
+            src="https://sun9-51.userapi.com/impf/wTwDr3Eh4cZlJPKHiHp90nPQlTlkGfPsAfqFaQ/7VcL1Zco3C4.jpg?size=1458x2160&quality=96&sign=4b7d9e8ab01d00a262d358f8a2e82534&type=album"
+          />
+          <h3
+            class="StyledMovieCardTitle-sc-1it6lj2-2 jAURuc"
+          >
+             Chilling Adventures of Sabrina 
+          </h3>
+          <div
+            class="StyledMovieCardInfo-sc-1it6lj2-5 hGVonm"
+          >
+            <p
+              class="StyledMovieCardGenre-sc-1it6lj2-3 hBpVXW"
+            >
+               Fantasy 
+            </p>
+            <p
+              class="StyledMovieCardDate-sc-1it6lj2-4 etwnAe"
+            >
+               2018-12-13 
+            </p>
+          </div>
+        </li>
+      </a>
+      <a
+        href="/movies/1004"
+      >
+        <li
+          class="StyledMovieCard-sc-1it6lj2-0 iqQZfi"
+        >
+          <img
+            class="MovieCardPoster-sc-1it6lj2-1 kABfhE"
+            src="https://sun9-42.userapi.com/impf/P71f5UItZ2ekG0PzCp16UgWLms_GxmWBzDjREQ/nEkurXb2xWE.jpg?size=1458x2160&quality=96&sign=484ff49b495837b36cf31564231e99ba&type=album"
+          />
+          <h3
+            class="StyledMovieCardTitle-sc-1it6lj2-2 jAURuc"
+          >
+             The Witcher 
+          </h3>
+          <div
+            class="StyledMovieCardInfo-sc-1it6lj2-5 hGVonm"
+          >
+            <p
+              class="StyledMovieCardGenre-sc-1it6lj2-3 hBpVXW"
+            >
+               Adventure 
+            </p>
+            <p
+              class="StyledMovieCardDate-sc-1it6lj2-4 etwnAe"
+            >
+               2019-02-13 
+            </p>
+          </div>
+        </li>
+      </a>
+    </ul>
+  </section>
+</DocumentFragment>
+`;
