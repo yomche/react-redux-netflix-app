@@ -2,7 +2,7 @@ export type MoviesDataType = {
   poster_path: string;
   title: string;
   release_date: string;
-  genres: string;
+  genres: string[];
   overview: string;
   id: number;
 };
