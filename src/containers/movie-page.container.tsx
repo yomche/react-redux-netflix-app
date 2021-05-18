@@ -10,8 +10,8 @@ import { NavPanel } from '../components/nav-panel/nav-panel.component';
 import { MoviesSorterContainer } from './movies-sorter.container';
 import { MoviesListContainer } from './movies-list.container';
 import { Footer } from '../components/footer/footer.component';
-import { NotFoundContainer } from '../components/not-found/not-found.component';
-import { fetchMovieById, fetchMovies, setViewType } from '../actions';
+import { Loader } from '../components/loader/loader.component';
+import { fetchMovieById, setViewType } from '../actions';
 import { TypeOfView } from '../constants/app.constants';
 
 export const MoviePageContainer: FC = () => {
@@ -30,9 +30,7 @@ export const MoviePageContainer: FC = () => {
   const { id } = useParams<ParamTypes>();
 
   useEffect(() => {
-    if (currentMovieById.id === undefined) {
-      dispatch(fetchMovieById(Number(id)));
-    }
+    dispatch(fetchMovieById(Number(id)));
   }, [id]);
 
   return (
@@ -43,7 +41,7 @@ export const MoviePageContainer: FC = () => {
         {JSON.stringify(currentMovieById) !== JSON.stringify({}) ? (
           <MovieFullInfo currentMovieFullInfo={currentMovieById} />
         ) : (
-          <NotFoundContainer />
+          <Loader />
         )}
       </StyledHeader>
       <MoviesSorterContainer />
