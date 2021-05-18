@@ -1,6 +1,10 @@
-import { Link } from 'react-router-dom';
 import React, { FC } from 'react';
-import { StyledMoviesList, StyledContainer, StyledMoviesNotFound } from './movies-list.styles';
+import {
+  StyledMoviesList,
+  StyledContainer,
+  StyledMoviesNotFound,
+  StyledLink,
+} from './movies-list.styles';
 import { MovieCard } from '../movie-card/movie-card.component';
 import { MoviesDataType } from '../../types';
 
@@ -12,7 +16,6 @@ type MoviesListProps = {
     release_date: string;
     overview: string;
     genre: string;
-    id: number;
   }) => React.MouseEventHandler<HTMLLIElement>;
 };
 
@@ -21,7 +24,7 @@ export const MoviesList: FC<MoviesListProps> = ({ onSetMovieFullInfoType, movies
     <StyledMoviesList>
       {moviesData !== undefined &&
         moviesData.map(({ poster_path, title, genres, release_date, overview, id }) => (
-          <Link to={`/movies/${id}`} key={id}>
+          <StyledLink to={`/movies/${id}`} key={id}>
             <MovieCard
               onClickToChange={onSetMovieFullInfoType}
               poster_path={poster_path}
@@ -31,7 +34,7 @@ export const MoviesList: FC<MoviesListProps> = ({ onSetMovieFullInfoType, movies
               overview={overview}
               key={id}
             />
-          </Link>
+          </StyledLink>
         ))}
       {moviesData !== undefined && moviesData.length === 0 && (
         <StyledMoviesNotFound>Sorry, no movies were found</StyledMoviesNotFound>
