@@ -4,3 +4,4 @@ export const updateSearchInputValueAction = 'UPDATE_SEARCH_INPUT_VALUE';
 export const fetchSuccessAction = 'FETCH_MOVIES_SUCCESS';
 export const setSortTypeAction = 'SET_SORT_TYPE';
 export const setSearchTypeAction = 'SET_SEARCH_TYPE';
+export const setLoadingStatusAction = 'SET_LOADING_STATUS';
