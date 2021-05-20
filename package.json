@@ -107,6 +107,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
+    "regenerator-runtime": "^0.13.7",
     "styled-components": "^5.2.1"
   }
 }
