@@ -12,11 +12,13 @@ import {
   fetchMoviesByInputValue,
 } from '../actions';
 import { RootState } from '../store';
+import { Loader } from '../components/loader/loader.component';
 
 export const MoviesListContainer: FC = () => {
-  const { moviesData, movieSortType } = useSelector((state: RootState) => ({
+  const { moviesData, movieSortType, isPageLoading } = useSelector((state: RootState) => ({
     moviesData: state.moviesData.get('movies'),
     movieSortType: state.sortTypeData,
+    isPageLoading: state.loadingStatusData,
   }));
   const dispatch = useDispatch();
   const location = useLocation();
@@ -30,15 +32,24 @@ export const MoviesListContainer: FC = () => {
     []
   );
 
+  const inputSearchQuery = new URLSearchParams(location.search).get('search');
   useEffect(() => {
-    const inputSearchRequest = new URLSearchParams(location.search).get('search');
-    if (inputSearchRequest !== null) {
-      const searchTypeRequest = new URLSearchParams(location.search).get('searchBy');
-      dispatch(fetchMoviesByInputValue(movieSortType, inputSearchRequest, searchTypeRequest));
+    if (inputSearchQuery !== null) {
+      const searchTypeQuery = new URLSearchParams(location.search).get('searchBy');
+      dispatch(fetchMoviesByInputValue(movieSortType, inputSearchQuery, searchTypeQuery));
+      dispatch(setViewType(TypeOfView.movieList));
     } else {
       dispatch(fetchMovies());
     }
-  }, []);
+  }, [inputSearchQuery]);
 
-  return <MoviesList onSetMovieFullInfoType={setMovieFullInfoType} moviesData={moviesData} />;
+  return (
+    <>
+      {isPageLoading === true ? (
+        <Loader />
+      ) : (
+        <MoviesList onSetMovieFullInfoType={setMovieFullInfoType} moviesData={moviesData} />
+      )}
+    </>
+  );
 };

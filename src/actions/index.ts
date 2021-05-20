@@ -7,11 +7,18 @@ import {
   fetchSuccessAction,
   setSortTypeAction,
   setSearchTypeAction,
+  setLoadingStatusAction,
 } from './action-names';
 import { moviesUrl, TypeOfView } from '../constants/app.constants';
 import { CurrentMovieType, MoviesDataType, ResponseType } from '../types';
 
-import { generatedUrlByGenre, generatedUrlBySortType, generatedUrlByInputValue } from '../handlers';
+import {
+  getMovies,
+  getMoviesBySortType,
+  getMoviesByGenre,
+  getMoviesByInputValue,
+  getMovieById,
+} from '../helpers';
 
 type ActionViewType = {
   type: string;
@@ -50,12 +57,22 @@ export function setMoviesSuccess(moviesList: MoviesDataType[]): ActionFetchSucce
   return { type: fetchSuccessAction, payload: moviesList };
 }
 
+type LoadingStatusAction = {
+  type: string;
+  payload: boolean;
+};
+
+export const setLoadingStatus = (loadingStatus: boolean): LoadingStatusAction => ({
+  type: setLoadingStatusAction,
+  payload: loadingStatus,
+});
+
 export const fetchMovies = () => (dispatch: ThunkDispatch<RootState, void, any>): void => {
-  fetch(moviesUrl)
-    .then((response) => response.json())
+  getMovies()
     .then((moviesData: ResponseType) => {
       dispatch(setMoviesSuccess(moviesData.data));
       dispatch(setViewType(TypeOfView.movieList));
+      dispatch(setLoadingStatus(false));
     })
     .catch((e) => {
       throw new Error(e.message);
@@ -85,8 +102,7 @@ export const setSearchType = (SearchType: string): ActionSetSearchType => ({
 export const fetchMoviesBySortType = (sortType: string) => (
   dispatch: ThunkDispatch<RootState, void, ActionFetchSuccess>
 ): void => {
-  fetch(generatedUrlBySortType(sortType))
-    .then((response) => response.json())
+  getMoviesBySortType(sortType)
     .then((moviesData: ResponseType) => {
       dispatch(setMoviesSuccess(moviesData.data));
     })
@@ -98,8 +114,7 @@ export const fetchMoviesBySortType = (sortType: string) => (
 export const fetchMoviesByGenre = (sortType: string, movieGenre: string) => (
   dispatch: ThunkDispatch<RootState, void, ActionFetchSuccess>
 ): void => {
-  fetch(generatedUrlByGenre(sortType, movieGenre))
-    .then((response) => response.json())
+  getMoviesByGenre(sortType, movieGenre)
     .then((moviesData: ResponseType) => {
       dispatch(setMoviesSuccess(moviesData.data));
     })
@@ -112,11 +127,11 @@ export const fetchMoviesByInputValue = (
   sortType: string,
   inputValue: string,
   searchType: string
-) => (dispatch: ThunkDispatch<RootState, void, ActionFetchSuccess>): void => {
-  fetch(generatedUrlByInputValue(sortType, inputValue, searchType))
-    .then((response) => response.json())
+) => (dispatch: ThunkDispatch<RootState, void, any>): void => {
+  getMoviesByInputValue(sortType, inputValue, searchType)
     .then((moviesData: ResponseType) => {
       dispatch(setMoviesSuccess(moviesData.data));
+      dispatch(setLoadingStatus(false));
     })
     .catch((e) => {
       throw new Error(e.message);
@@ -126,9 +141,7 @@ export const fetchMoviesByInputValue = (
 export const fetchMovieById = (movieId: number) => (
   dispatch: ThunkDispatch<RootState, void, any>
 ): void => {
-  const searchURL = `${moviesUrl}/${movieId}`;
-  fetch(searchURL)
-    .then((response) => response.json())
+  getMovieById(movieId)
     .then((movieData: MoviesDataType) => {
       dispatch(setCurrentMovie(movieData));
       dispatch(setViewType(TypeOfView.movieFullInfo));
