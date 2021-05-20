@@ -3,12 +3,13 @@
 exports[`< MovieList /> component renders with movies data 1`] = `
 <DocumentFragment>
   <section
-    class="StyledContainer-sc-825f46-0 jgaCUf"
+    class="StyledContainer-sc-825f46-1 izpdVG"
   >
     <ul
-      class="StyledMoviesList-sc-825f46-1 fiLvoX"
+      class="StyledMoviesList-sc-825f46-2 ewWvTM"
     >
       <a
+        class="StyledLink-sc-825f46-0 hUVJTR"
         href="/movies/1000"
       >
         <li
@@ -40,6 +41,7 @@ exports[`< MovieList /> component renders with movies data 1`] = `
         </li>
       </a>
       <a
+        class="StyledLink-sc-825f46-0 hUVJTR"
         href="/movies/1001"
       >
         <li
@@ -71,6 +73,7 @@ exports[`< MovieList /> component renders with movies data 1`] = `
         </li>
       </a>
       <a
+        class="StyledLink-sc-825f46-0 hUVJTR"
         href="/movies/1004"
       >
         <li
