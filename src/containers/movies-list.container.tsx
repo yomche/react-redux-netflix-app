@@ -15,11 +15,14 @@ import { RootState } from '../store';
 import { Loader } from '../components/loader/loader.component';
 
 export const MoviesListContainer: FC = () => {
-  const { moviesData, movieSortType, isPageLoading } = useSelector((state: RootState) => ({
-    moviesData: state.moviesData.get('movies'),
-    movieSortType: state.sortTypeData,
-    isPageLoading: state.loadingStatusData,
-  }));
+  const { moviesData, movieSortType, isPageLoading, viewType } = useSelector(
+    (state: RootState) => ({
+      moviesData: state.moviesData.get('movies'),
+      movieSortType: state.sortTypeData,
+      isPageLoading: state.loadingStatusData,
+      viewType: state.viewTypeData,
+    })
+  );
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -38,9 +41,7 @@ export const MoviesListContainer: FC = () => {
       const searchTypeQuery = new URLSearchParams(location.search).get('searchBy');
       dispatch(fetchMoviesByInputValue(movieSortType, inputSearchQuery, searchTypeQuery));
       dispatch(setViewType(TypeOfView.movieList));
-    } else {
-      dispatch(fetchMovies());
-    }
+    } else if (viewType === TypeOfView.movieList) dispatch(fetchMovies());
   }, [inputSearchQuery]);
 
   return (
