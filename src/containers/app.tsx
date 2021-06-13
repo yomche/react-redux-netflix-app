@@ -1,38 +1,16 @@
-import React, { FC, useState, useCallback } from 'react';
+import React, { FC } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import { typeOfView } from '../constants/app.constants';
-import { GlobalStyle } from '../../styles/global-styles';
-import { Header } from '../components/header/header.component';
-import { MoviesList } from '../components/movies-list/movies-list.component';
-import { Footer } from '../components/footer/footer.component';
-import { MoviesSorter } from '../components/movies-sorter/movies-sorter.component';
-import { ErrorBoundaryMoviesList } from './error-boundary';
+import { MainPageContainer } from './main-page.container';
+import { MoviePageContainer } from './movie-page.container';
+import { NotFoundContainer } from '../components/not-found/not-found.component';
 
-export const App: FC = () => {
-  const [viewType, setViewType] = useState(typeOfView.movieList);
-  const [currentMovie, setCurrentMovie] = useState();
-  const setMovieFullInfoType = useCallback(
-    (chosenMovie) => () => {
-      setViewType(typeOfView.MovieFullInfo);
-      setCurrentMovie(chosenMovie);
-    },
-    []
-  );
-  const setMovieListType = useCallback(() => setViewType(typeOfView.movieList), []);
-
-  return (
-    <>
-      <GlobalStyle />
-      <Header
-        viewType={viewType}
-        currentMovie={currentMovie}
-        onSetMovieListType={setMovieListType}
-      />
-      <MoviesSorter />
-      <ErrorBoundaryMoviesList>
-        <MoviesList onSetMovieFullInfoType={setMovieFullInfoType} />
-      </ErrorBoundaryMoviesList>
-      <Footer />
-    </>
-  );
-};
+export const App: FC = () => (
+  <Router>
+    <Switch>
+      <Route exact path="/" component={MainPageContainer} />
+      <Route exact path="/movies/:id" component={MoviePageContainer} />
+      <Route path="*" component={NotFoundContainer} />
+    </Switch>
+  </Router>
+);

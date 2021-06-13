@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`< Header /> component renders correctly 1`] = `
+<DocumentFragment>
+  <header
+    class="StyledHeader-sc-10yfg31-0 liWvUy"
+  >
+    <nav
+      class="StyledNav-sc-1ix25fi-0 iRDFNW"
+    >
+      <div
+        class="StyledLogo-sc-1wiya5k-0 ehakiy"
+      />
+      <a
+        href="/"
+      >
+        <button
+          class="StyledSearchButton-sc-1ix25fi-1 bxvkPE"
+        >
+           SEARCH 
+        </button>
+      </a>
+    </nav>
+    <form
+      class="StyledSearchForm-sc-1uqbsb-0 bMzDOT"
+    >
+      <h1
+        class="StyledHeading-sc-1uqbsb-3 jjwjis"
+      >
+        FIND YOUR MOVIE
+      </h1>
+      <div
+        class="StyledInput-sc-1uqbsb-1 jrqfiq"
+      >
+        <input
+          name="inputValue"
+          placeholder="Quentin Tarantino"
+          type="text"
+          value=""
+        />
+      </div>
+      <section
+        class="StyledControlsSection-sc-1uqbsb-5 llnDDy"
+      >
+        <label
+          class="StyledTitleButton-sc-1uqbsb-6 ipEjeb"
+        >
+          <input
+            checked=""
+            name="searchType"
+            type="radio"
+            value="title"
+          />
+           TITLE
+        </label>
+        <label
+          class="StyledGenreButton-sc-1uqbsb-7 XQUYS"
+        >
+          <input
+            name="searchType"
+            type="radio"
+            value="genres"
+          />
+           GENRE
+        </label>
+        <button
+          class="StyledSubmitButton-sc-1uqbsb-8 kfslJL"
+          type="submit"
+        >
+           SUBMIT 
+        </button>
+      </section>
+    </form>
+  </header>
+</DocumentFragment>
+`;

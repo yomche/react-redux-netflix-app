@@ -1,4 +1,9 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
 
 export const StyledContainer = styled.section`
   width: 1200px;
@@ -16,4 +21,11 @@ export const StyledMoviesList = styled.ul`
   flex-wrap: wrap;
   row-gap: 60px;
   column-gap: 100px;
+`;
+
+export const StyledMoviesNotFound = styled.h1`
+  width: 1200px;
+  margin: auto;
+  color: red;
+  text-align: center;
 `;
