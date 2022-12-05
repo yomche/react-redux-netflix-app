@@ -1,6 +1,7 @@
 # Netflix Roulette
 
 Проект для EPAM Training Center с использованием React, React Router, Redux, TypeScript, Webpack
+(upd. API с фильмами больше не работает)
 
 ## Состав
 
